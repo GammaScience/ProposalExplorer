@@ -3,10 +3,14 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { PainPointComponent } from './pain-point/pain-point.component';
+import { SolutionComponent } from './solution/solution.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PainPointComponent,
+    SolutionComponent
   ],
   imports: [
     BrowserModule,
