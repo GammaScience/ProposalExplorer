@@ -3,5 +3,14 @@
     {{ title }}
   </h1>
 </div>
+<div class="painpoints">
+  <div *ngFor="let p of proposal.painPoints" class="painpoint">
+    <app-pain-point [model]="p" ></app-pain-point>
+  </div>
+</div>
+<div class="solutions">
+  <div *ngFor="let s of proposal.solutions" class="solution">
+      <app-solution [model]="s"></app-solution>
+  </div>
 
-<router-outlet></router-outlet>
+</div>
