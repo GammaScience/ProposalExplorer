@@ -16,7 +16,6 @@ export class PainPoint  {
             let rv = !! (this.solvedBy.size);
             for ( const s of this.solvedBy  ) {
                 rv = rv && s.active;
-                console.log(s.active);
             }
             return rv;
         }
