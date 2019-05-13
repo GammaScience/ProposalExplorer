@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { PainPointComponent } from './pain-point/pain-point.component';
 import { SolutionComponent } from './solution/solution.component';
 import { ProposalService } from './proposal.service';
-
+import { environment as env } from '../environments/environment';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,8 +18,9 @@ import { ProposalService } from './proposal.service';
     AppRoutingModule
   ],
   providers: [
-    ProposalService
+    { provide: ProposalService, useValue: env.proposal }
   ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

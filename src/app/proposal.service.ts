@@ -10,8 +10,8 @@ import { Solution } from './solution.model';
 })
 export class ProposalService {
   public title: string;
-  public painPoints: Set<PainPoint>;
-  public solutions: Set<Solution>;
+  public painPoints: Set<PainPoint> = new Set();
+  public solutions: Set<Solution> = new Set();
 
   constructor() { }
 }

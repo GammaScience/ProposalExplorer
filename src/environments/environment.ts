@@ -1,9 +1,35 @@
+import { ProposalService } from '../app/proposal.service';
+import { PainPoint } from '../app/painpoint.model';
+import { Solution } from 'src/app/solution.model';
+
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+
+function getProposal() {
+  const p = new ProposalService();
+  const sol1 = new Solution('Solution 1', '', '', new Set(), new Set());
+  const sol2 = new Solution('Solution 2', '', '', new Set(), new Set());
+  const sol3 = new Solution('Solution 3', '', '', new Set(), new Set());
+  const pp1 = new  PainPoint('Problem 1', '', '', new Set([sol1]));
+  const pp2 = new  PainPoint('Problem 2', '', '', new Set([sol2]));
+  const pp3 = new  PainPoint('Problem 3', '', '', new Set([sol3]));
+  p.title = 'Test Proposal';
+  sol1.requires.add(sol2);
+  sol1.blocks.add(sol3);
+  p.solutions.add(sol1);
+  p.solutions.add(sol2);
+  p.solutions.add(sol3);
+  p.painPoints.add(pp1);
+  p.painPoints.add(pp2);
+  p.painPoints.add(pp3);
+  return p;
+}
+
 export const environment = {
-  production: false
+  production: false,
+  proposal: getProposal()
 };
 
 /*
@@ -14,3 +40,4 @@ export const environment = {
  * on performance if an error is thrown.
  */
 // import 'zone.js/dist/zone-error';  // Included with Angular CLI.
+
