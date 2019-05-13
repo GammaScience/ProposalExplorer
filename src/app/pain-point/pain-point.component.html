@@ -1,4 +1,4 @@
-<div>
+<div [ngClass]="{'solved':model.isSolved, 'notsolved':!model.isSolved}">
   {{ model.name }}
   {{ model.description }}
 </div>

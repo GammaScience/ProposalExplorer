@@ -1,0 +1,19 @@
+div {
+    border:1px dashed;
+}
+div.title {
+    border: 0px;
+    text-align: center;
+}
+.column {
+    border: 1px solid;
+    width:45%
+}
+div.painpoints {
+    &:extend(.column);
+    float: left;
+}
+div.solutions {
+    &:extend(.column);
+    float: right;
+}
