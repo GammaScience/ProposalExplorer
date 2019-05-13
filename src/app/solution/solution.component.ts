@@ -13,5 +13,12 @@ export class SolutionComponent implements OnInit {
 
   ngOnInit() {
   }
+  public toggleActive(e: Event) {
+      try {
+        this.model.active = !this.model.active;
+      } catch {
+          e.preventDefault();
+      }
+  }
 
 }

@@ -1,4 +1,9 @@
-<div>
+<div [ngClass]="{'available':model.available, 'notavailable':!model.available, 'active':model.active}" >
+  <p>
   {{ model.name }}
   {{ model.description }}
+  </p>
+  <input type="checkbox" name="activate" [checked]='model.active'
+    (click)="toggleActive($event)"
+  ><label for="activate">Active</label>
 </div>

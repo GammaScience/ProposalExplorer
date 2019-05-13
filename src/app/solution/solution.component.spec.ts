@@ -37,5 +37,15 @@ describe('SolutionComponent', () => {
     const nativeEl = fixture.debugElement.nativeElement;
     expect(nativeEl.textContent ).toContain('description');
   });
+  it('should have toggle active function which toggles the models active property', () => {
+    component.model = { active: false } as Solution; // type-cast hack for testing
+    component.toggleActive(null);
+    expect(component.model.active).toBeTruthy();
+    component.toggleActive(null);
+    expect(component.model.active).toBeFalsy();
+
+
+  });
+
 
 });
