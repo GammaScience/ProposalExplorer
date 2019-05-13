@@ -10,11 +10,12 @@ export class Solution {
     public get active() {
         return this._active;
     }
-    public set active(newv) {
+    public set active(inValue) {
+        const newValue = !!inValue; // coerce to boolean
         if (!this.available) {
             throw Error(`${this.name} is not available`);
         }
-        if (newv) {
+        if (newValue) {
             // Check active prereq's
             for ( const s of this.requires ) {
                 s.markRequiredBy(this);
@@ -25,13 +26,23 @@ export class Solution {
                 s.available = false;
             }
         } else {
+            // Check if inactive pre-req's (are we required by something active)
             for (const s of this._requiredBy ) {
                 if (s.active) {
                     throw Error(`${this.name} requires ${s.name}`);
                 }
             }
         }
-        this._active = newv;
+        this._active = newValue;
+        if ( !this._active) {
+            // Attempt to Reset any blocks
+            for ( const s of this.blocks ) {
+                s.markBlockedBy(this);
+                try {
+                    s.available = true;
+                } catch { /* do nothing */}
+            }
+        }
     }
 
     public get available() {

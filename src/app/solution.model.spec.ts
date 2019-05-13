@@ -28,7 +28,7 @@ describe('the Solution model', () => {
   describe('has a setter for active', () => {
     let s;
     beforeEach( () => {
-       s = new Solution('', '', '', new Set(), new Set() );
+       s = new Solution('root', '', '', new Set(), new Set() );
     });
     it(' that should mark all blocked solutions as inactive and unavailbale if it set active to true', () => {
        const s2 = new Solution('', '', '', new Set(), new Set() );
@@ -57,6 +57,24 @@ describe('the Solution model', () => {
        s.requires.add(s2);
        s.active = false;
        expect(s2.active).toBeFalsy();
+    });
+    it(' that should attempt to mark blocked as available when going inactive', () => {
+       const s2 = new Solution('', '', '', new Set(), new Set() );
+       s.blocks.add(s2);
+       s.active = true;
+       s.active = false;
+       expect(s2.available).toBeTruthy();
+    });
+    it(` that should attempt to mark blocked as available when going inactive leaving anything with
+        another bocker still unavailable with throwing an  exception`, () => {
+       const s2 = new Solution('2', '', '', new Set(), new Set() ); 
+       const s3 = new Solution('3', '', '', new Set(), new Set() ); 
+       s.blocks.add(s2);
+       s3.blocks.add(s2);
+       s.active = true;
+       s3.active = true;
+       s.active = false;
+       expect(s2.available).toBeFalsy();
     });
     it(' that should raise an exception if it is required by any active solutions when going inactive', () => {
        const s2 = new Solution('', '', '', new Set(), new Set() );
