@@ -1,9 +1,11 @@
 export class Solution {
 
+// tslint:disable: variable-name
     private _active = false;
     private _available = true;
-    private _requiredBy : Set<Solution> = new Set();
-    private _blockedBy : Set<Solution> = new Set();
+    private _requiredBy: Set<Solution> = new Set();
+    private _blockedBy: Set<Solution> = new Set();
+// tslint:enable: variable-name
 
     public get active() {
         return this._active;
