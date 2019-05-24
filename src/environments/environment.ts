@@ -9,12 +9,46 @@ import { Solution } from 'src/app/solution.model';
 
 function getProposal() {
   const p = new ProposalService();
-  const sol1 = new Solution('Solution 1', '', '', new Set(), new Set());
-  const sol2 = new Solution('Solution 2', '', '', new Set(), new Set());
-  const sol3 = new Solution('Solution 3', '', '', new Set(), new Set());
-  const pp1 = new  PainPoint('Problem 1', '', '', new Set([sol1]));
-  const pp2 = new  PainPoint('Problem 2', '', '', new Set([sol2]));
-  const pp3 = new  PainPoint('Problem 3', '', '', new Set([sol3]));
+  const sol1 = new Solution(
+    'Solution 1',
+    'This is the solution #1',
+    `blar blar blar blar blar blar blar blar blar blar blar blar`,
+    new Set(),
+    new Set());
+  const sol2 = new Solution(
+    'Solution 2',
+    'This is the solution #2',
+    `blar blar blar blar blar blar blar blar blar blar blar blar`,
+    new Set(),
+    new Set());
+  const sol3 = new Solution(
+    'Solution 3',
+    'This is the solution #3',
+    'blar blar blar blar blar blar blar blar blar blar blar blar',
+    new Set(),
+    new Set());
+  const pp1 = new  PainPoint(
+    'Problem 1',
+    'This is the problem #1',
+    `this is a long discription of the problem and is far to long to show blar
+    blar blar blar blar blar blar blar blar blar blar blar blar
+    blar blar blar blar blar blar blar blar blar blar blar blar
+    blar blar blar blar blar blar blar blar blar blar blar blar
+    blar blar blar blar blar blar blar blar blar blar blar blar
+    blar blar blar blar blar blar blar blar blar blar blar blar`,
+    new Set([sol1]));
+  const pp2 = new  PainPoint(
+    'Problem 2',
+    '',
+    'blar blar blar  blar blar blar blar blar blar  blar blar ',
+    new Set([sol2])
+  );
+  const pp3 = new  PainPoint(
+    'Problem 3',
+    'This is the problem #3',
+    'blar blar blar  blar blar blar blar blar blar  blar blar ',
+    new Set([sol3])
+  );
   p.title = 'Test Proposal';
   p.description = `This is an overview of what is wrong with the current system`;
   sol1.requires.add(sol2);
