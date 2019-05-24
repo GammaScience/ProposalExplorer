@@ -67,8 +67,8 @@ describe('the Solution model', () => {
     });
     it(` that should attempt to mark blocked as available when going inactive leaving anything with
         another bocker still unavailable with throwing an  exception`, () => {
-       const s2 = new Solution('2', '', '', new Set(), new Set() ); 
-       const s3 = new Solution('3', '', '', new Set(), new Set() ); 
+       const s2 = new Solution('2', '', '', new Set(), new Set() );
+       const s3 = new Solution('3', '', '', new Set(), new Set() );
        s.blocks.add(s2);
        s3.blocks.add(s2);
        s.setActive(true);
