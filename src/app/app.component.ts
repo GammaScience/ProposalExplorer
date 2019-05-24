@@ -12,6 +12,10 @@ export class AppComponent {
      return this.proposal.title;
    }
 
+   get description() {
+    return this.proposal.description;
+   }
+
    constructor(
      public proposal: ProposalService
    ) { }
