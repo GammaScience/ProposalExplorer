@@ -10,6 +10,7 @@ import { Solution } from './solution.model';
 })
 export class ProposalService {
   public title: string;
+  public description: string;
   public painPoints: Set<PainPoint> = new Set();
   public solutions: Set<Solution> = new Set();
 

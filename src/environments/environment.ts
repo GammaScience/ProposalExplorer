@@ -16,6 +16,7 @@ function getProposal() {
   const pp2 = new  PainPoint('Problem 2', '', '', new Set([sol2]));
   const pp3 = new  PainPoint('Problem 3', '', '', new Set([sol3]));
   p.title = 'Test Proposal';
+  p.description = `This is an overview of what is wrong with the current system`;
   sol1.requires.add(sol2);
   sol1.blocks.add(sol3);
   p.solutions.add(sol1);
