@@ -12,10 +12,10 @@ import { SolutionComponent } from './solution.component';
 import { Solution } from '../solution.model';
 
 class FakeModel {
-  isActice = false;
+  isActive  = false;
 
   public setActive( value: boolean ) {
-    this.isActice = value;
+    this.isActive = value;
   }
 }
 
