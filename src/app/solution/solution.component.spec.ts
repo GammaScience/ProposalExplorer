@@ -5,6 +5,7 @@ import {
   MatCheckboxModule,
   MatExpansionModule,
 } from '@angular/material';
+import {  NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 
 import { SolutionComponent } from './solution.component';
@@ -25,6 +26,7 @@ describe('SolutionComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
+        NoopAnimationsModule,
         MatButtonToggleModule,
         MatCardModule,
         MatCheckboxModule,

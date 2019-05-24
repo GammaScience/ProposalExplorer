@@ -5,6 +5,7 @@ import {
   MatCheckboxModule,
   MatExpansionModule,
 } from '@angular/material';
+import {  NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { PainPointComponent } from './pain-point.component';
 import { PainPoint } from '../painpoint.model';
@@ -16,6 +17,7 @@ describe('PainPointComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
+        NoopAnimationsModule,
         MatButtonToggleModule,
         MatCardModule,
         MatCheckboxModule,

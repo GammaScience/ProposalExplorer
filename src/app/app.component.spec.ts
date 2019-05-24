@@ -1,5 +1,6 @@
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import {  NoopAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatButtonToggleModule,
   MatCardModule,
@@ -58,6 +59,7 @@ describe('AppComponent', () => {
     p.solutions = solutions;
     TestBed.configureTestingModule({
       imports: [
+        NoopAnimationsModule,
         RouterTestingModule,
         MatButtonToggleModule,
         MatCardModule,
@@ -101,7 +103,7 @@ describe('AppComponent', () => {
     let checked = false;
     for (const pp of pps) {
       checked = true;
-      expect(compiled.querySelector('div.painpoints').textContent ).toContain(pp.name);
+      expect(compiled.querySelector('.painpoints').textContent ).toContain(pp.name);
     }
     if ( !checked) {
       // tslint:disable-next-line:no-string-throw
@@ -116,7 +118,7 @@ describe('AppComponent', () => {
     let checked = false;
     for (const s of solutions) {
       checked = true;
-      expect(compiled.querySelector('div.solutions').textContent ).toContain(s.name);
+      expect(compiled.querySelector('.solutions').textContent ).toContain(s.name);
     }
     if ( !checked) {
       // tslint:disable-next-line:no-string-throw
