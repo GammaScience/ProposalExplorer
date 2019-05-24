@@ -6,7 +6,18 @@ import { AppComponent } from './app.component';
 import { PainPointComponent } from './pain-point/pain-point.component';
 import { SolutionComponent } from './solution/solution.component';
 import { ProposalService } from './proposal.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {
+  // MatButtonModule,
+  MatButtonToggleModule,
+  MatCardModule,
+  MatCheckboxModule,
+  MatExpansionModule,
+} from '@angular/material';
+
 import { environment as env } from '../environments/environment';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,8 +25,14 @@ import { environment as env } from '../environments/environment';
     SolutionComponent
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
-    AppRoutingModule
+    BrowserAnimationsModule,
+    // MatButtonModule,
+    MatButtonToggleModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatExpansionModule,
   ],
   providers: [
     { provide: ProposalService, useValue: env.proposal }

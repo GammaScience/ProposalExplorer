@@ -1,9 +1,38 @@
-.available {
-    background-color: white;
+
+@available: white;
+@notavailable: gray;
+@active: paleturquoise;
+
+/deep/.mat-content {
+    align-items: baseline;
 }
-.notavailable {
-    background-color: gray;
+
+mat-button-toggle {
+    margin-right: 16px;
 }
-.active {
-    background-color: paleturquoise;
+
+
+.mat-expansion-panel:not([aria-disabled=true]){
+    // :not(.mat-expanded)
+    &.available .mat-expansion-panel-header{
+        background-color: @available;
+        &:hover{
+            background-color: lighten(@available, 10%);
+        }
+    }
+    &.notavailable .mat-expansion-panel-header{
+        background-color: @notavailable;
+        &:hover{
+            background-color: lighten(@notavailable, 10%);
+        }
+    }
+    &.active .mat-expansion-panel-header{
+        background-color: @active;
+        &:hover{
+            background-color: lighten(@active, 10%);
+        }
+    }
+    mat-panel-title{
+        font-weight: bolder;
+    }
 }

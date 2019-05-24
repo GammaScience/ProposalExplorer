@@ -1,4 +1,10 @@
-<div [ngClass]="{'solved':model.isSolved, 'notsolved':!model.isSolved}">
-  {{ model.name }}
-  {{ model.description }}
-</div>
+<mat-expansion-panel [ngClass]="{'solved':model.isSolved, 'notsolved':!model.isSolved, 'painpoint': true}">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      {{ model.name }} <ng-template [ngIf]="model.summary != ''"> : </ng-template>
+    </mat-panel-title>
+    <mat-panel-description>
+      {{ model.summary }}
+    </mat-panel-description>
+  </mat-expansion-panel-header>{{ model.description }}
+</mat-expansion-panel>

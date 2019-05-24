@@ -1,16 +1,25 @@
 <div class="title">
   <h1>
-    {{ title }}
+    Proposal visualization: <span class="subtitle">{{ title }}</span>
   </h1>
 </div>
-<div class="painpoints">
-  <div *ngFor="let p of proposal.painPoints" class="painpoint">
-    <app-pain-point [model]="p" ></app-pain-point>
-  </div>
-</div>
-<div class="solutions">
-  <div *ngFor="let s of proposal.solutions" class="solution">
-      <app-solution [model]="s"></app-solution>
-  </div>
 
+<div class="panel">
+  <div class="description">{{ description }}</div>
+  <mat-card>
+    <mat-card-title>Problems looking for solutions</mat-card-title>
+    <mat-accordion multi="true" class="painpoints" >
+    <ng-template ngFor let-pp [ngForOf]="proposal.painPoints">
+      <app-pain-point [model]="pp" ></app-pain-point>
+    </ng-template>
+    </mat-accordion>
+  </mat-card>
+  <mat-card>
+    <mat-card-title>Proposed possible solutions</mat-card-title>
+    <mat-accordion  class="solutions" multi="true">
+      <ng-template ngFor let-sol [ngForOf]="proposal.solutions">
+        <app-solution [model]="sol"></app-solution>
+      </ng-template>
+    </mat-accordion>
+  </mat-card>
 </div>

@@ -1,6 +1,22 @@
-.solved {
-    background-color: lightgreen;
-}
-.notsolved {
-    background-color: lightcoral;
+
+@solved: lightgreen;
+@unsolved: lightcoral;
+
+.mat-expansion-panel:not([aria-disabled=true]){
+    // :not(.mat-expanded)
+    &.solved .mat-expansion-panel-header{
+        background-color: @solved;
+        &:hover{
+            background-color: lighten(@solved, 10%);
+        }
+    }
+    &.notsolved .mat-expansion-panel-header{
+        background-color: @unsolved;
+        &:hover{
+            background-color: lighten(@unsolved, 10%);
+        }
+    }
+    mat-panel-title{
+        font-weight: bolder;
+    }
 }

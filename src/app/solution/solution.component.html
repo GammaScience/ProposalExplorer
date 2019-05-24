@@ -1,9 +1,25 @@
-<div [ngClass]="{'available':model.available, 'notavailable':!model.available, 'active':model.active | async}" >
-  <p>
-  {{ model.name }}
+<mat-expansion-panel [ngClass]="{
+    'available':model.available,
+    'notavailable':!model.available,
+    'active':model.active | async,
+    'solution': true
+  }"
+  >
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      {{ model.name }}
+    </mat-panel-title>
+    <mat-panel-description>
+    <span>{{ model.summary }}</span>
+    </mat-panel-description>
+     <span class="actions">
+      <mat-button-toggle *ngIf="model.available"
+        mat-raised-button color="primary"
+        (click)="toggleActive($event)">
+        <ng-template [ngIf]="model.active | async" [ngIfElse]="inactive">Remove</ng-template>
+        <ng-template #inactive >Add</ng-template>
+      </mat-button-toggle>
+    </span>
+  </mat-expansion-panel-header>
   {{ model.description }}
-  </p>
-  <input type="checkbox" name="activate" [checked]='model.active| async'
-    (click)="toggleActive($event)"
-  ><label for="activate">Active</label>
-</div>
+</mat-expansion-panel>

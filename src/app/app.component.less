@@ -1,19 +1,20 @@
-div {
-    border:1px dashed;
-}
-div.title {
+.title {
     border: 0px;
     text-align: center;
+    padding: 10px;
+    background-color: #755fa9;
+    color: White;
+    h1 {
+       margin: 0px;
+    }
+    .subtitle{
+        font-weight: lighter;
+        font-style: italic;
+        color: #d2d2d2;
+    }
 }
-.column {
-    border: 1px solid;
-    width:45%
-}
-div.painpoints {
-    &:extend(.column);
-    float: left;
-}
-div.solutions {
-    &:extend(.column);
-    float: right;
+
+.panel{
+    margin: 15px;
+    & > * { margin-bottom: 10px; }
 }
