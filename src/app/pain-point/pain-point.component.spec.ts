@@ -1,4 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {
+  MatButtonToggleModule,
+  MatCardModule,
+  MatCheckboxModule,
+  MatExpansionModule,
+} from '@angular/material';
 
 import { PainPointComponent } from './pain-point.component';
 import { PainPoint } from '../painpoint.model';
@@ -9,6 +15,12 @@ describe('PainPointComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [
+        MatButtonToggleModule,
+        MatCardModule,
+        MatCheckboxModule,
+        MatExpansionModule,
+      ],
       declarations: [ PainPointComponent ]
     })
     .compileComponents();

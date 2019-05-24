@@ -1,5 +1,12 @@
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import {
+  MatButtonToggleModule,
+  MatCardModule,
+  MatCheckboxModule,
+  MatExpansionModule,
+} from '@angular/material';
+
 import { AppComponent } from './app.component';
 import { ProposalService } from './proposal.service';
 import { PainPoint } from './painpoint.model';
@@ -51,7 +58,11 @@ describe('AppComponent', () => {
     p.solutions = solutions;
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        MatButtonToggleModule,
+        MatCardModule,
+        MatCheckboxModule,
+        MatExpansionModule,
       ],
       declarations: [
         MockPainPointComponent,

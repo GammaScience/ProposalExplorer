@@ -1,4 +1,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {
+  MatButtonToggleModule,
+  MatCardModule,
+  MatCheckboxModule,
+  MatExpansionModule,
+} from '@angular/material';
+
 
 import { SolutionComponent } from './solution.component';
 import { Solution } from '../solution.model';
@@ -17,6 +24,12 @@ describe('SolutionComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [
+        MatButtonToggleModule,
+        MatCardModule,
+        MatCheckboxModule,
+        MatExpansionModule,
+      ],
       declarations: [ SolutionComponent ]
     })
     .compileComponents();
