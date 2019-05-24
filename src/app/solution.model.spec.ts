@@ -30,6 +30,18 @@ describe('the Solution model', () => {
     beforeEach( () => {
        s = new Solution('root', '', '', new Set(), new Set() );
     });
+
+    it(' that should ensure that the observalbe is changes', (done) => {
+      const s2 = new Solution('', '', '', new Set(), new Set() );
+      let current = s.isActive;
+      s.active.subscribe( (val) => {
+        expect(val).toEqual(current);
+        current = ! current;
+        if (current) { done(); }
+      });
+      s.setActive(true);
+    });
+
     it(' that should mark all blocked solutions as inactive and unavailbale if it set active to true', () => {
        const s2 = new Solution('', '', '', new Set(), new Set() );
        s.blocks.add(s2);
