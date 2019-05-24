@@ -35,12 +35,24 @@ export class Solution {
                 s.markBlockedBy(this);
                 s.available = false;
             }
+            // We shouldn't be available if any of this are active; so
+            // it should be safe to mark them as unavilable;
+            for (const b of this._blockedBy ) {
+                b.available = false;
+            }
         } else {
             // Check if inactive pre-req's (are we required by something active)
             for (const s of this._requiredBy ) {
                 if (s.isActive) {
                     throw Error(`${this.name} requires ${s.name}`);
                 }
+            }
+            // Attempt to undo any reverse blocking ,but don't propagate
+            // any erros; as they will be cause by blockages form other routes.
+            for (const b of this._blockedBy ) {
+                try {
+                    b.available = true;
+                } catch { /* do nothing */ }
             }
         }
         this._active = newValue;
@@ -80,12 +92,22 @@ export class Solution {
         public requires: Set<Solution>
     ) {
         this._activeSubject = new BehaviorSubject(this._active);
+        this.updateBlockers();
     }
 
-    public markRequiredBy( soln: Solution ) {
+    /**
+     * Must be called after any changes to the blocks list.
+     */
+    public updateBlockers() {
+        for (const b of this.blocks ) {
+            b.markBlockedBy(this);
+        }
+    }
+
+    private markRequiredBy( soln: Solution ) {
         this._requiredBy.add(soln);
     }
-    public markBlockedBy( soln: Solution ) {
+    private markBlockedBy( soln: Solution ) {
         this._blockedBy.add(soln);
     }
 }
