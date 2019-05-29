@@ -12,6 +12,7 @@ import {
   MatButtonToggleModule,
   MatCardModule,
   MatCheckboxModule,
+  MatDividerModule,
   MatExpansionModule,
 } from '@angular/material';
 
@@ -32,6 +33,7 @@ import { environment as env } from '../environments/environment';
     MatButtonToggleModule,
     MatCardModule,
     MatCheckboxModule,
+    MatDividerModule,
     MatExpansionModule,
   ],
   providers: [

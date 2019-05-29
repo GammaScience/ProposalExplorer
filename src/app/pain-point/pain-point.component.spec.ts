@@ -3,6 +3,7 @@ import {
   MatButtonToggleModule,
   MatCardModule,
   MatCheckboxModule,
+  MatDividerModule,
   MatExpansionModule,
 } from '@angular/material';
 import {  NoopAnimationsModule } from '@angular/platform-browser/animations';
@@ -21,6 +22,7 @@ describe('PainPointComponent', () => {
         MatButtonToggleModule,
         MatCardModule,
         MatCheckboxModule,
+        MatDividerModule,
         MatExpansionModule,
       ],
       declarations: [ PainPointComponent ]

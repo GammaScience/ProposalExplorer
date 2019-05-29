@@ -7,4 +7,11 @@
       {{ model.summary }}
     </mat-panel-description>
   </mat-expansion-panel-header>{{ model.description }}
+  <div class="notes" *ngIf="model.solvedBy.size  > 0">
+    <mat-divider></mat-divider>
+    <div class="note">
+      <span class="note-header">Solved by:</span>
+      <span *ngFor="let preprq of model.solvedBy"> {{preprq.name}}</span>
+    </div>
+  </div>
 </mat-expansion-panel>
