@@ -7,7 +7,7 @@
   >
   <mat-expansion-panel-header>
     <mat-panel-title>
-      {{ model.name }}
+      {{ model.name }} <ng-template [ngIf]="model.summary != ''"> : </ng-template>
     </mat-panel-title>
     <mat-panel-description>
     <span>{{ model.summary }}</span>
