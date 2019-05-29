@@ -7,7 +7,7 @@
 <div class="panel">
   <div class="description">{{ description }}</div>
   <mat-card>
-    <mat-card-title>Problems looking for solutions</mat-card-title>
+    <mat-card-title>Identified Problems</mat-card-title>
     <mat-accordion multi="true" class="painpoints" >
     <ng-template ngFor let-pp [ngForOf]="proposal.painPoints">
       <app-pain-point [model]="pp" ></app-pain-point>
