@@ -13,7 +13,7 @@ export class PainPoint  {
         ) {}
 
         get isSolved(): boolean {
-            let rv = ! (this.solvedBy.size);
+            let rv = false;
             for ( const s of this.solvedBy  ) {
                 rv = rv || s.isActive;
             }

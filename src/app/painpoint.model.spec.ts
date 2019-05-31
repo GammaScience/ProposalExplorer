@@ -15,14 +15,14 @@ describe('Painpoint.Model', () => {
     p.solvedBy.add(s);
     expect(p.isSolved).toBeFalsy();
   });
-  it('should be nsovled if there are one active solutions', () => {
+  it('should be sovled if there are one active solutions', () => {
     const s = new Solution('', '', '', new Set(), new Set());
     const p = new PainPoint('', '', '');
     s.setActive(true);
     p.solvedBy.add(s);
     expect(p.isSolved).toBeTruthy();
   });
-  it('should be nsovled if there is one active  an on inactive solutions', () => {
+  it('should be sovled if there is one active and one inactive solutions', () => {
     const s1 = new Solution('', '', '', new Set(), new Set());
     const s2 = new Solution('', '', '', new Set(), new Set());
     const p = new PainPoint('', '', '');
@@ -30,7 +30,7 @@ describe('Painpoint.Model', () => {
     s2.setActive(false);
     p.solvedBy.add(s1);
     p.solvedBy.add(s2);
-    expect(p.isSolved).toBeFalsy();
+    expect(p.isSolved).toBeTruthy();
   });
 
 
