@@ -7,6 +7,7 @@ import {
   MatExpansionModule,
 } from '@angular/material';
 import {  NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxMdModule } from 'ngx-md';
 
 
 import { SolutionComponent } from './solution.component';
@@ -33,6 +34,7 @@ describe('SolutionComponent', () => {
         MatCheckboxModule,
         MatDividerModule,
         MatExpansionModule,
+        NgxMdModule,
       ],
       declarations: [ SolutionComponent ]
     })

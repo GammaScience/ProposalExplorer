@@ -16,6 +16,9 @@ import {
   MatExpansionModule,
 } from '@angular/material';
 
+import { NgxMdModule } from 'ngx-md';
+
+
 import { environment as env } from '../environments/environment';
 
 
@@ -35,6 +38,8 @@ import { environment as env } from '../environments/environment';
     MatCheckboxModule,
     MatDividerModule,
     MatExpansionModule,
+    NgxMdModule.forRoot(),
+
   ],
   providers: [
     { provide: ProposalService, useValue: env.proposal }

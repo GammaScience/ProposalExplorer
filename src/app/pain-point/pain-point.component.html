@@ -6,7 +6,8 @@
     <mat-panel-description>
       {{ model.summary }}
     </mat-panel-description>
-  </mat-expansion-panel-header>{{ model.description }}
+  </mat-expansion-panel-header>
+  <ngx-md [data]="model.description"></ngx-md>
   <div class="notes" *ngIf="model.solvedBy.size  > 0">
     <mat-divider></mat-divider>
     <div class="note">

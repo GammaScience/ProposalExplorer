@@ -18,7 +18,8 @@ function getProposal() {
   const sol2 = new Solution(
     'Solution 2',
     'This is the solution #2',
-    `blar blar blar blar blar blar blar blar blar blar blar blar`,
+    `## Solution Two 
+blar blar blar blar blar blar blar blar blar blar blar blar`,
     new Set(),
     new Set());
   const sol3 = new Solution(
@@ -31,6 +32,7 @@ function getProposal() {
     'Problem 1',
     'This is the problem #1',
     `this is a long discription of the problem and is far to long to show blar
+
     blar blar blar blar blar blar blar blar blar blar blar blar
     blar blar blar blar blar blar blar blar blar blar blar blar
     blar blar blar blar blar blar blar blar blar blar blar blar
