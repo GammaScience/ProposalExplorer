@@ -53,7 +53,7 @@ function getProposal() {
   p.description = `This is an overview of what is wrong with the current system`;
   sol1.requires.add(sol2);
   sol1.blocks.add(sol3);
-  sol1.updateBlockers();
+  sol1.updateLinks();
   p.solutions.add(sol1);
   p.solutions.add(sol2);
   p.solutions.add(sol3);

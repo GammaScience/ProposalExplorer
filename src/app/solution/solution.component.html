@@ -22,15 +22,15 @@
     </span>
   </mat-expansion-panel-header>
   {{ model.description }}
-  <div class="notes" *ngIf="model.requires.size + model._requiredBy.size + model.blocks.size > 0">
+  <div class="notes" *ngIf="model.requires.size + model.requiredBy.size + model.blocks.size > 0">
     <mat-divider></mat-divider>
     <div *ngIf="model.requires.size > 0" class="note">
       <span class="note-header">Requires:</span>
       <span *ngFor="let preprq of model.requires "> {{preprq.name}}</span>
     </div>
-    <div *ngIf="model._requiredBy.size > 0" class="note">
+    <div *ngIf="model.requiredBy.size > 0" class="note">
       <span class="note-header">Requires by:</span>
-      <span *ngFor="let preprq of model._requiredBy "> {{preprq.name}}</span>
+      <span *ngFor="let preprq of model.requiredBy "> {{preprq.name}}</span>
     </div>
     <div *ngIf="model.blocks.size > 0" class="note">
       <span class="note-header">Blocked by:</span>

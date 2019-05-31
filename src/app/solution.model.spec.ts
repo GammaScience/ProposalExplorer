@@ -25,6 +25,10 @@ describe('the Solution model', () => {
        }).toThrowError();
     });
   });
+  describe('has a fuction to_update links', () => {
+      it(` which calls markBlockby on each of it's blocking solutions`);
+      it(` which calls markRequiredBy on each of it's requiredby solutions`);
+  });
   describe('has a setter for active', () => {
     let s;
     beforeEach( () => {
@@ -99,7 +103,7 @@ describe('the Solution model', () => {
     it(' that should mark a solution we block as unavailable if we become active', () => {
        const s2 = new Solution('', '', '', new Set(), new Set() );
        s2.blocks.add(s);
-       s2.updateBlockers();
+       s2.updateLinks();
        s.setActive(true);
        expect(s2.available).toBeFalsy();
     });
@@ -109,7 +113,7 @@ describe('the Solution model', () => {
        // Repeat last test as setup.
        const s2 = new Solution('', '', '', new Set(), new Set() );
        s2.blocks.add(s);
-       s2.updateBlockers();
+       s2.updateLinks();
        s.setActive(true);
        expect(s2.available).toBeFalsy();
         // Now mark inactive and test
@@ -122,7 +126,7 @@ describe('the Solution model', () => {
        const s2 = new Solution('', '', '', new Set(), new Set() );
        const s3 = new Solution('', '', '', new Set(), new Set() );
        s2.blocks.add(s);
-       s2.updateBlockers();
+       s2.updateLinks();
        s.setActive(true);
        s3.blocks.add(s2);
        s3.setActive(true);

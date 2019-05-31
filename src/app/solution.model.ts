@@ -7,8 +7,8 @@ export class Solution {
     private _activeSubject: BehaviorSubject<boolean>;
 
     private _available = true;
-    private _requiredBy: Set<Solution> = new Set();
-    private _blockedBy: Set<Solution> = new Set();
+    public requiredBy: Set<Solution> = new Set();
+    public blockedBy: Set<Solution> = new Set();
 // tslint:enable: variable-name
 
     /** Gets an observable of the active state of this slution */
@@ -37,19 +37,19 @@ export class Solution {
             }
             // We shouldn't be available if any of this are active; so
             // it should be safe to mark them as unavilable;
-            for (const b of this._blockedBy ) {
+            for (const b of this.blockedBy ) {
                 b.available = false;
             }
         } else {
             // Check if inactive pre-req's (are we required by something active)
-            for (const s of this._requiredBy ) {
+            for (const s of this.requiredBy ) {
                 if (s.isActive) {
                     throw Error(`${this.name} requires ${s.name}`);
                 }
             }
             // Attempt to undo any reverse blocking ,but don't propagate
             // any erros; as they will be cause by blockages form other routes.
-            for (const b of this._blockedBy ) {
+            for (const b of this.blockedBy ) {
                 try {
                     b.available = true;
                 } catch { /* do nothing */ }
@@ -76,7 +76,7 @@ export class Solution {
         if (this.isActive  && !newValue) {
             throw Error(`Cannot mark ${this.name} unavailable as it is active`);
         } else if (newValue) {
-            for (const s of this._blockedBy) {
+            for (const s of this.blockedBy) {
                 if (s.isActive) {
                     throw Error(`Cannot mark ${this.name} available as it is blocked by ${s.name}`);
                 }
@@ -92,22 +92,22 @@ export class Solution {
         public requires: Set<Solution>
     ) {
         this._activeSubject = new BehaviorSubject(this._active);
-        this.updateBlockers();
+        this.updateLinks();
     }
 
     /**
-     * Must be called after any changes to the blocks list.
+     * Must be called after any changes to the blocks or required lists.
      */
-    public updateBlockers() {
+    public updateLinks() {
         for (const b of this.blocks ) {
             b.markBlockedBy(this);
         }
     }
 
     private markRequiredBy( soln: Solution ) {
-        this._requiredBy.add(soln);
+        this.requiredBy.add(soln);
     }
     private markBlockedBy( soln: Solution ) {
-        this._blockedBy.add(soln);
+        this.blockedBy.add(soln);
     }
 }
