@@ -17,6 +17,7 @@
         [ngClass]="{
           'note-item': true,
           'active': preprq.active|async,
+          'blocked': !(preprq.available|async),
           first: first,
           last: last
         }"
