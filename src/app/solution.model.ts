@@ -115,6 +115,7 @@ export class Solution {
      */
     public updateLinks() {
         for (const b of this.blocks ) {
+            b.blocks.add(this);
             b.markBlockedBy(this);
         }
     }
