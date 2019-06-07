@@ -5,6 +5,7 @@ import {
   MatCheckboxModule,
   MatDividerModule,
   MatExpansionModule,
+  MatTooltipModule,
 } from '@angular/material';
 import {  NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxMdModule } from 'ngx-md';
@@ -24,7 +25,8 @@ describe('PainPointComponent', () => {
         MatCardModule,
         MatCheckboxModule,
         MatDividerModule,
-        MatExpansionModule, 
+        MatExpansionModule,
+        MatTooltipModule,
         NgxMdModule,
       ],
       declarations: [ PainPointComponent ]

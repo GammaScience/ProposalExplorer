@@ -14,6 +14,7 @@ import {
   MatCheckboxModule,
   MatDividerModule,
   MatExpansionModule,
+  MatTooltipModule,
 } from '@angular/material';
 
 import { NgxMdModule } from 'ngx-md';
@@ -38,6 +39,7 @@ import { environment as env } from '../environments/environment';
     MatCheckboxModule,
     MatDividerModule,
     MatExpansionModule,
+    MatTooltipModule,
     NgxMdModule.forRoot(),
 
   ],
