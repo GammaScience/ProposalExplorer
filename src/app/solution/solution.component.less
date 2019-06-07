@@ -3,6 +3,8 @@
 @notavailable: gray;
 @active: paleturquoise;
 
+@changeInTime: 1s;
+
 /deep/.mat-content {
     align-items: baseline;
 }
@@ -37,6 +39,20 @@
             background-color: lighten(@active, 10%);
         }
     }
+
+    &.reveal .mat-expansion-panel-header{
+        @keyframes highlight {
+            0% {
+                background-color: #ecb131
+            }
+            100% {
+                background-color: inherit;
+            }
+        }
+        -webkit-transition: background @changeInTime; /* Safari prior 6.1 */
+        animation: highlight @changeInTime ease-out;
+    }
+
     mat-panel-title{
         font-weight: bolder;
     }

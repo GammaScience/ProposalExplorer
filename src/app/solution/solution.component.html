@@ -2,6 +2,7 @@
     'available':!(model.available|async),
     'notavailable':!(model.available|async),
     'active':model.active | async,
+    'reveal': reveal ,
     'solution': true
   }"
   >
@@ -49,6 +50,7 @@
           first: first,
           last: last
         }"
+        (click)="preprq.identify_control()"
       > {{preprq.name}}</span>
     </div>
     <div *ngIf="model.blocks.size > 0" class="note">
@@ -62,6 +64,7 @@
           first: first,
           last: last
         }"
+        (click)="preprq.identify_control()"
       > {{preprq.name}}</span>
     </div>
   </div>
