@@ -1,4 +1,9 @@
-<mat-expansion-panel [ngClass]="{'solved':model.isSolved, 'notsolved':!model.isSolved, 'painpoint': true}">
+<mat-expansion-panel [ngClass]="{
+    'solved':model.isSolved,
+    'notsolved':!model.isSolved,
+    'painpoint': true
+    }"
+  >
   <mat-expansion-panel-header>
     <mat-panel-title>
       {{ model.name }} <ng-template [ngIf]="model.summary != ''"> : </ng-template>
