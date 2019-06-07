@@ -29,5 +29,14 @@
     .note-header {
         font-weight: 150;
     }
+    .note-item{
+        &.active{
+            color: #36821d;
+        }
+        &:not(.last)::after{
+            content: ',';
+            padding-right: 0.5em;
+        }
+    }
 
 }

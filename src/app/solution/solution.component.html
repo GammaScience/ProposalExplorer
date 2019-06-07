@@ -34,7 +34,15 @@
     </div>
     <div *ngIf="model.blocks.size > 0" class="note">
       <span class="note-header">Blocked by:</span>
-      <span *ngFor="let preprq of model.blocks "> {{preprq.name}}</span>
+      <span
+        *ngFor="let preprq of model.blocks; let first = first; let last = last"
+        [ngClass]="{ 
+          'note-item': true,
+          'active': preprq.active|async,
+          first: first,
+          last: last
+        }"
+      > {{preprq.name}}</span>
     </div>
   </div>
 
