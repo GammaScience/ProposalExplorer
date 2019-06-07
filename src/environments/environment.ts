@@ -12,7 +12,13 @@ function getProposal() {
   const sol1 = new Solution(
     'Solution 1',
     'This is the solution #1',
-    `blar blar blar blar blar blar blar blar blar blar blar blar`,
+    `Lorem ipsum dolor sit amet, suas inciderint quo no, no lorem senserit consectetuer
+     mel. Facete iisque reprehendunt duo ut, eu solum consetetur has. Saepe numquam
+     ponderum in pri, sea eruditi recteque assentior at. Quot vitae appellantur at his,
+     ad sit convenire imperdiet gubergren. Error oporteat assentior et eum, nisl brute
+     invidunt no vim, eum indoctum vituperatoribus ad. Eam in viderer blandit constituto,
+     consul populo sensibus nec id. Harum vocibus no sea, in qui utamur delectus
+     constituto.`,
     new Set(),
     new Set());
   const sol2 = new Solution(
@@ -31,13 +37,18 @@ blar blar blar blar blar blar blar blar blar blar blar blar`,
   const pp1 = new  PainPoint(
     'Problem 1',
     'This is the problem #1',
-    `this is a long discription of the problem and is far to long to show blar
+  `
+  This is a long discription of the problem and is far to long to show blar.
+  ### Lorem ipsum dolor sit amet, his ut lucilius menandri, vix possim facilis ad,
+  elitr pertinacia adolescens duo eu. Ut soleat iisque instructior per.
+    Aliquip euismod adolescens mea cu, at exerci inimicus argumentum vim, vel
+    ut accusam gubergren. Clita officiis vivendum vix ei, vero utamur ius id.
 
-    blar blar blar blar blar blar blar blar blar blar blar blar
-    blar blar blar blar blar blar blar blar blar blar blar blar
-    blar blar blar blar blar blar blar blar blar blar blar blar
-    blar blar blar blar blar blar blar blar blar blar blar blar
-    blar blar blar blar blar blar blar blar blar blar blar blar`,
+  ### Altera gubergren
+  vix et, nostrum philosophia instructior vis in, nec an
+    nulla inermis. Sea inani quaerendum et, ius explicari consetetur ei. Ut
+    est veniam doming imperdiet, ei eam porro lucilius, ne eam scaevola eloquentiam.
+    Quas albucius pro in, sonet vocent epicuri vis an.`,
     new Set([sol1]));
   const pp2 = new  PainPoint(
     'Problem 2',
@@ -52,7 +63,21 @@ blar blar blar blar blar blar blar blar blar blar blar blar`,
     new Set([sol3])
   );
   p.title = 'Test Proposal';
-  p.description = `This is an overview of what is wrong with the current system`;
+  p.description = `
+  # This is a title for the introductory text
+  This is an overview of what is wrong with the current system
+  Lorem ipsum dolor sit amet id qui nominati repudiare, suavitate dissentiet est cu,
+  liber luptatum eu eam. Eum an deleniti oporteat tincidunt. At vis veri ferri
+  consequuntur, ne eum soluta sapientem vulputate. Graecis convenire maiestatis ne
+  qui, his ea reque tamquam.
+
+  ## Sub heading
+  Eam aliquam dissentiet in, qui cu feugait indoctum. Id vidit scripta omnesque
+  pro. Ut quo tale singulis, ne mei civibus hendrerit, qui ei elitr eleifend. Mel
+  epicurei reformidans ea, id possit doctus nostrum cum, duo cibo perfecto convenire
+  an. In consequat suscipiantur nam, eum mucius dolorem efficiendi ut. In odio nihil
+  utroque mea, has dico facilisis mnesarchum eu, movet timeam efficiantur ut sed.
+  `;
   sol1.requires.add(sol2);
   sol1.blocks.add(sol3);
   sol1.updateLinks();
