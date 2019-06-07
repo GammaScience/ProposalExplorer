@@ -1,4 +1,4 @@
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 
 export class Solution {
 
@@ -10,6 +10,11 @@ export class Solution {
     private _availableSubject: BehaviorSubject<boolean>;
     public requiredBy: Set<Solution> = new Set();
     public blockedBy: Set<Solution> = new Set();
+
+    /**
+     * Subject to watch / triger when the soloutiion in to be identified
+     */
+    private _revealSubject = new Subject<Solution>();
 // tslint:enable: variable-name
 
     /** Gets an observable of the active state of this slution */
@@ -119,5 +124,14 @@ export class Solution {
     }
     private markBlockedBy( soln: Solution ) {
         this.blockedBy.add(soln);
+    }
+
+    /** Called to get the UI to identify solotuion controls  */
+    public identify_control() {
+        this._revealSubject.next( this );
+    }
+
+    public identify_watcher(): Observable<Solution> {
+        return this._revealSubject.asObservable();
     }
 }
