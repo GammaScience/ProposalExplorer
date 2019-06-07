@@ -1,6 +1,6 @@
 
-@solved: lightgreen;
-@unsolved: lightcoral;
+@solved: #b0fdb0;
+@unsolved: #f3c8c8;
 
 .mat-expansion-panel:not([aria-disabled=true]){
     // :not(.mat-expanded)
@@ -16,13 +16,13 @@
     &.solved .mat-expansion-panel-header{
         background-color: @solved;
         &:hover{
-            background-color: lighten(@solved, 10%);
+            background-color: lighten(@solved, 5%);
         }
     }
     &.notsolved .mat-expansion-panel-header{
         background-color: @unsolved;
         &:hover{
-            background-color: lighten(@unsolved, 10%);
+            background-color: lighten(@unsolved, 5%);
         }
     }
     mat-panel-title{
