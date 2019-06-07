@@ -4,6 +4,15 @@
 
 .mat-expansion-panel:not([aria-disabled=true]){
     // :not(.mat-expanded)
+
+    mat-panel-title{
+        flex: 1;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+    mat-panel-description{
+        flex: 2;
+    }
     &.solved .mat-expansion-panel-header{
         background-color: @solved;
         &:hover{

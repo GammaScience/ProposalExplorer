@@ -7,12 +7,17 @@
     align-items: baseline;
 }
 
-mat-button-toggle {
-    margin-right: 16px;
-}
-
-
 .mat-expansion-panel:not([aria-disabled=true]){
+    mat-panel-title{
+        flex: 2;
+        overflow: hidden;
+        white-space: nowrap;
+
+    }
+    mat-panel-description{
+        flex: 4;
+    }
+
     // :not(.mat-expanded)
     &.available .mat-expansion-panel-header{
         background-color: @available;
@@ -34,6 +39,12 @@ mat-button-toggle {
     }
     mat-panel-title{
         font-weight: bolder;
+    }
+
+    .actions {
+        flex: 1;
+        text-align: right;
+        margin-right: 16px;
     }
 
     .mat-expanded {
