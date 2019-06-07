@@ -26,11 +26,28 @@
     <mat-divider></mat-divider>
     <div *ngIf="model.requires.size > 0" class="note">
       <span class="note-header">Requires:</span>
-      <span *ngFor="let preprq of model.requires "> {{preprq.name}}</span>
+      <span
+        *ngFor="let preprq of model.requires; let first = first; let last = last"
+        [ngClass]="{
+          'note-item': true,
+          'active': preprq.active|async,
+          first: first,
+          last: last
+        }"
+        (click)="preprq.identify_control()"
+      > {{preprq.name}}</span>
     </div>
     <div *ngIf="model.requiredBy.size > 0" class="note">
       <span class="note-header">Requires by:</span>
-      <span *ngFor="let preprq of model.requiredBy "> {{preprq.name}}</span>
+      <span
+        *ngFor="let preprq of model.requiredBy; let first = first; let last = last"
+        [ngClass]="{
+          'note-item': true,
+          'active': preprq.active|async,
+          first: first,
+          last: last
+        }"
+      > {{preprq.name}}</span>
     </div>
     <div *ngIf="model.blocks.size > 0" class="note">
       <span class="note-header">Blocked by:</span>
