@@ -1,6 +1,6 @@
 <mat-expansion-panel [ngClass]="{
-    'available':model.available,
-    'notavailable':!model.available,
+    'available':!(model.available|async),
+    'notavailable':!(model.available|async),
     'active':model.active | async,
     'solution': true
   }"
@@ -13,7 +13,7 @@
     <span>{{ model.summary }}</span>
     </mat-panel-description>
      <span class="actions">
-      <mat-button-toggle *ngIf="model.available"
+      <mat-button-toggle *ngIf="model.available|async"
         mat-raised-button color="primary"
         (click)="toggleActive($event)">
         <ng-template [ngIf]="model.active | async" [ngIfElse]="inactive">Remove</ng-template>
@@ -39,6 +39,7 @@
         [ngClass]="{ 
           'note-item': true,
           'active': preprq.active|async,
+          'blocked': !(preprq.available|async),
           first: first,
           last: last
         }"

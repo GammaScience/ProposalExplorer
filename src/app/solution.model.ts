@@ -7,6 +7,7 @@ export class Solution {
     private _activeSubject: BehaviorSubject<boolean>;
 
     private _available = true;
+    private _availableSubject: BehaviorSubject<boolean>;
     public requiredBy: Set<Solution> = new Set();
     public blockedBy: Set<Solution> = new Set();
 // tslint:enable: variable-name
@@ -22,7 +23,7 @@ export class Solution {
     /** Update the state of this object */
     public setActive(inValue: boolean) {
         const newValue = !!inValue; // coerce to boolean
-        if (!this.available) {
+        if (!this.isAvailable) {
             throw Error(`${this.name} is not available`);
         }
         if (newValue) {
@@ -33,12 +34,12 @@ export class Solution {
             }
             for ( const s of this.blocks ) {
                 s.markBlockedBy(this);
-                s.available = false;
+                s.setAvailable(false);
             }
             // We shouldn't be available if any of this are active; so
             // it should be safe to mark them as unavilable;
             for (const b of this.blockedBy ) {
-                b.available = false;
+                b.setAvailable(false);
             }
         } else {
             // Check if inactive pre-req's (are we required by something active)
@@ -51,7 +52,7 @@ export class Solution {
             // any erros; as they will be cause by blockages form other routes.
             for (const b of this.blockedBy ) {
                 try {
-                    b.available = true;
+                    b.setAvailable(true);
                 } catch { /* do nothing */ }
             }
         }
@@ -63,16 +64,21 @@ export class Solution {
             for ( const s of this.blocks ) {
                 s.markBlockedBy(this);
                 try {
-                    s.available = true;
+                    s.setAvailable(true);
                 } catch { /* do nothing */}
             }
         }
     }
 
     public get available() {
-        return this._available;
+        return this._availableSubject.asObservable();
     }
-    public set available(newValue) {
+
+    public get isAvailable() {
+        return this._availableSubject.getValue();
+    }
+
+    public setAvailable(newValue) {
         if (this.isActive  && !newValue) {
             throw Error(`Cannot mark ${this.name} unavailable as it is active`);
         } else if (newValue) {
@@ -83,6 +89,8 @@ export class Solution {
             }
         }
         this._available = newValue;
+        this._availableSubject.next( newValue );
+
     }
     constructor(
         public name: string,
@@ -92,6 +100,8 @@ export class Solution {
         public requires: Set<Solution>
     ) {
         this._activeSubject = new BehaviorSubject(this._active);
+        this._availableSubject = new BehaviorSubject(this._available);
+
         this.updateLinks();
     }
 
