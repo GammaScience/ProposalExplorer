@@ -12,7 +12,7 @@ const timerdelay = 1000;
 })
 export class SolutionComponent implements OnInit {
 
-  private reveal = false;
+  public reveal = false;
 
   @Input() model: Solution;
   constructor(private elementRef: ElementRef) { }
