@@ -13,6 +13,7 @@ import { ProposalService } from './proposal.service';
 import { PainPoint } from './painpoint.model';
 import { Component, OnInit, Input } from '@angular/core';
 import { Solution } from './solution.model';
+import { NgxMdModule } from 'ngx-md';
 
 
 
@@ -65,6 +66,7 @@ describe('AppComponent', () => {
         MatCardModule,
         MatCheckboxModule,
         MatExpansionModule,
+        NgxMdModule,
       ],
       declarations: [
         MockPainPointComponent,

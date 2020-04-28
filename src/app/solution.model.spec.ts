@@ -30,7 +30,7 @@ describe('the Solution model', () => {
       it(` which calls markRequiredBy on each of it's requiredby solutions`);
   });
   describe('has a setter for active', () => {
-    let s;
+    let s: Solution;
     beforeEach( () => {
        s = new Solution('root', '', '', new Set(), new Set() );
     });
@@ -52,12 +52,14 @@ describe('the Solution model', () => {
        s.setActive(true);
        expect(s2.isAvailable).toBeFalsy();
     });
+
     it(' that should mark all required solutions as active if it set active to true', () => {
        const s2 = new Solution('', '', '', new Set(), new Set() );
        s.requires.add(s2);
        s.setActive(true);
        expect(s2.isActive).toBeTruthy();
     });
+
     it(' that should raise an exception if any required solution is  unavailable if it set active to true', () => {
        const s2 = new Solution('', '', '', new Set(), new Set() );
        s2.setAvailable(false);
@@ -66,6 +68,7 @@ describe('the Solution model', () => {
          s.setActive(true);
        }).toThrowError();
     });
+
     it(' that should not set requirements as true when going inactive', () => {
        const s2 = new Solution('', '', '', new Set(), new Set() );
        s2.setAvailable(true);
@@ -74,6 +77,7 @@ describe('the Solution model', () => {
        s.setActive(false);
        expect(s2.isActive).toBeFalsy();
     });
+
     it(' that should attempt to mark blocked as available when going inactive', () => {
        const s2 = new Solution('', '', '', new Set(), new Set() );
        s.blocks.add(s2);
@@ -81,6 +85,7 @@ describe('the Solution model', () => {
        s.setActive(false);
        expect(s2.isAvailable).toBeTruthy();
     });
+
     it(` that should attempt to mark blocked as available when going inactive leaving anything with
         another bocker still unavailable with throwing an  exception`, () => {
        const s2 = new Solution('2', '', '', new Set(), new Set() );
@@ -92,6 +97,7 @@ describe('the Solution model', () => {
        s.setActive(false);
        expect(s2.isAvailable).toBeFalsy();
     });
+
     it(' that should raise an exception if it is required by any active solutions when going inactive', () => {
        const s2 = new Solution('', '', '', new Set(), new Set() );
        s2.requires.add(s);
@@ -100,6 +106,7 @@ describe('the Solution model', () => {
          s.setActive(false);
        }).toThrowError();
     });
+
     it(' that should mark a solution we block as unavailable if we become active', () => {
        const s2 = new Solution('', '', '', new Set(), new Set() );
        s2.blocks.add(s);
@@ -133,17 +140,22 @@ describe('the Solution model', () => {
         // Now mark inactive and test
        s.setActive(false);
        expect(s2.isAvailable).toBeFalsy();
-
     });
 
-
     it(' that should leave active as true when set to active', () => {
-      s.available = true;
+      (s as any)._available = true;
+      (s as any)._availableSubject.next( true );
+      expect(s.isAvailable).toBeTruthy();
+
       s.setActive(true);
       expect(s.isActive).toBe(true);
     });
+
     it(' that should raise an exception if it not availble when set to active', () => {
-      s.available = false;
+      (s as any)._available = false;
+      (s as any)._availableSubject.next( false );
+      expect(s.isAvailable).toBeFalsy();
+
       expect( () =>  {
         s.setActive(true);
       }).toThrowError();
