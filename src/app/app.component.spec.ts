@@ -11,7 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { ProposalService } from './proposal.service';
 import { PainPoint } from './painpoint.model';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Directive } from '@angular/core';
 import { Solution } from './solution.model';
 import { NgxMdModule } from 'ngx-md';
 
@@ -22,6 +22,7 @@ import { NgxMdModule } from 'ngx-md';
 * for our unit tests.
 */
 
+@Directive()
 class MockComponent<T> implements OnInit {
   @Input() model: T;
   constructor() { }
