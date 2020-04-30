@@ -7,7 +7,7 @@ import {
   MatCheckboxModule,
   MatExpansionModule,
 } from '@angular/material';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { ProposalService } from './proposal.service';
 import { PainPoint } from './painpoint.model';
@@ -67,6 +67,7 @@ describe('AppComponent', () => {
         MatCheckboxModule,
         MatExpansionModule,
         NgxMdModule,
+        HttpClientModule
       ],
       declarations: [
         MockPainPointComponent,

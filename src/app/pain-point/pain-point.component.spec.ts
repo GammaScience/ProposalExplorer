@@ -10,6 +10,7 @@ import {
 import {  NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxMdModule } from 'ngx-md';
 
+import { HttpClientModule } from '@angular/common/http';
 import { PainPointComponent } from './pain-point.component';
 import { PainPoint } from '../painpoint.model';
 
@@ -28,6 +29,7 @@ describe('PainPointComponent', () => {
         MatExpansionModule,
         MatTooltipModule,
         NgxMdModule,
+        HttpClientModule
       ],
       declarations: [ PainPointComponent ]
     })

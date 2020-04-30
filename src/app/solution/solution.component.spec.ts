@@ -9,6 +9,7 @@ import {
 import {  NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxMdModule } from 'ngx-md';
 
+import { HttpClientModule } from '@angular/common/http';
 
 import { SolutionComponent } from './solution.component';
 import { Solution } from '../solution.model';
@@ -35,6 +36,7 @@ describe('SolutionComponent', () => {
         MatDividerModule,
         MatExpansionModule,
         NgxMdModule,
+        HttpClientModule
       ],
       declarations: [ SolutionComponent ]
     })
