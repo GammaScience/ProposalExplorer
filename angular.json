@@ -98,7 +98,14 @@
               "src/favicon.ico",
               "src/assets"
             ]
-          }
+          },
+          "configurations": {
+            "ci": {
+              "watch": false,
+              "progress": false,
+              "browsers": "ChromeHeadlessCI"
+            }
+          },
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
