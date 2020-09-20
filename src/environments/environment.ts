@@ -24,7 +24,7 @@ function getProposal() {
   const sol2 = new Solution(
     'Solution 2',
     'This is the solution #2',
-    `## Solution Two 
+    `## Solution Two
 blar blar blar blar blar blar blar blar blar blar blar blar`,
     new Set(),
     new Set());

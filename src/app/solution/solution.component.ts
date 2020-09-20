@@ -21,7 +21,7 @@ export class SolutionComponent implements OnInit {
     this.model.identify_watcher().pipe(
       tap( sol => {
         this.reveal = true;
-        if ( this.elementRef.nativeElement.scrollIntoViewIfNeeded !== undefined){
+        if ( this.elementRef.nativeElement.scrollIntoViewIfNeeded !== undefined) {
           this.elementRef.nativeElement.scrollIntoViewIfNeeded(false);
         } else {
           this.elementRef.nativeElement.scrollIntoView({

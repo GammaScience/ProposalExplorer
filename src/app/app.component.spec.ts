@@ -23,7 +23,7 @@ import { NgxMdModule } from 'ngx-md';
 */
 
 @Directive()
-class MockComponent<T> implements OnInit {
+class MockComponentDirective<T> implements OnInit {
   @Input() model: T;
   constructor() { }
   ngOnInit() {
@@ -38,13 +38,13 @@ const templateHtml = `<div>
   template: templateHtml,
   styles: []
 })
-export class MockPainPointComponent extends MockComponent<PainPoint> { }
+export class MockPainPointComponent extends MockComponentDirective<PainPoint> { }
 @Component({
   selector: 'app-solution',
   template: templateHtml,
   styles: []
 })
-export class MockSolutionComponent extends MockComponent<Solution> { }
+export class MockSolutionComponent extends MockComponentDirective<Solution> { }
 
 
 
