@@ -108,7 +108,7 @@
               "progress": false,
               "browsers": "ChromeHeadlessCI"
             }
-          },
+          }
         }
       }
     },
