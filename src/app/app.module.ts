@@ -8,15 +8,14 @@ import { PainPointComponent } from './pain-point/pain-point.component';
 import { SolutionComponent } from './solution/solution.component';
 import { ProposalService } from './proposal.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {
-  // MatButtonModule,
-  MatButtonToggleModule,
-  MatCardModule,
-  MatCheckboxModule,
-  MatDividerModule,
-  MatExpansionModule,
-  MatTooltipModule,
-} from '@angular/material';
+import { 
+// MatButtonModule,
+MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatCardModule } from '@angular/material/card';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { NgxMdModule } from 'ngx-md';
 

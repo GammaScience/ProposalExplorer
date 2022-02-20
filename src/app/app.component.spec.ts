@@ -1,12 +1,10 @@
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import {  NoopAnimationsModule } from '@angular/platform-browser/animations';
-import {
-  MatButtonToggleModule,
-  MatCardModule,
-  MatCheckboxModule,
-  MatExpansionModule,
-} from '@angular/material';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatCardModule } from '@angular/material/card';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { ProposalService } from './proposal.service';
