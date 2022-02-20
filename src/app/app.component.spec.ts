@@ -1,4 +1,4 @@
-import { TestBed, async } from '@angular/core/testing';
+import { TestBed, waitForAsync } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import {  NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
@@ -52,7 +52,7 @@ describe('AppComponent', () => {
   const solutions: Set<Solution> = new Set();
   pps.add(new PainPoint('pp1', '', '', ));
   solutions.add(new Solution('sol1', '', '', new Set(), new Set()));
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     const p = new ProposalService();
     p.title = title;
     p.painPoints = pps;
