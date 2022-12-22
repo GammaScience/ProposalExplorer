@@ -132,7 +132,6 @@
       }
     }
   },
-  "defaultProject": "proposal-explorer",
   "cli": {
     "analytics": false
   }
