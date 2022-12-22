@@ -20,7 +20,9 @@ jobs:
         node-version: 14
     - name: Install dependencies
       run: npm install
-    - name: Lint
-      run: npm run lint
+  # The linter got lost in the upgrade to ng14. 
+  #  hoepfully we can find it againg
+  #  - name: Lint
+  #    run: npm run lint
     - name: Test
       run: npm test -- --configuration=ci
