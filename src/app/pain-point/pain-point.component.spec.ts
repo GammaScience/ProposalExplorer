@@ -6,7 +6,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import {  NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { NgxMdModule } from 'ngx-md';
+import { MarkdownModule } from 'ngx-markdown';
 
 import { HttpClientModule } from '@angular/common/http';
 import { PainPointComponent } from './pain-point.component';
@@ -26,7 +26,7 @@ describe('PainPointComponent', () => {
         MatDividerModule,
         MatExpansionModule,
         MatTooltipModule,
-        NgxMdModule,
+        MarkdownModule.forRoot(),
         HttpClientModule
       ],
       declarations: [ PainPointComponent ]

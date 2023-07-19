@@ -5,7 +5,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatExpansionModule } from '@angular/material/expansion';
 import {  NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { NgxMdModule } from 'ngx-md';
+import { MarkdownModule } from 'ngx-markdown';
 
 import { HttpClientModule } from '@angular/common/http';
 
@@ -33,7 +33,7 @@ describe('SolutionComponent', () => {
         MatCheckboxModule,
         MatDividerModule,
         MatExpansionModule,
-        NgxMdModule,
+        MarkdownModule,
         HttpClientModule
       ],
       declarations: [ SolutionComponent ]

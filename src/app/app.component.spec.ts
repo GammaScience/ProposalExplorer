@@ -11,7 +11,7 @@ import { ProposalService } from './proposal.service';
 import { PainPoint } from './painpoint.model';
 import { Component, OnInit, Input, Directive } from '@angular/core';
 import { Solution } from './solution.model';
-import { NgxMdModule } from 'ngx-md';
+import { MarkdownModule } from 'ngx-markdown';
 
 
 
@@ -65,7 +65,7 @@ describe('AppComponent', () => {
         MatCardModule,
         MatCheckboxModule,
         MatExpansionModule,
-        NgxMdModule,
+        MarkdownModule,
         HttpClientModule
       ],
       declarations: [

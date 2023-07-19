@@ -1,14 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PainPointComponent } from './pain-point/pain-point.component';
 import { SolutionComponent } from './solution/solution.component';
 import { ProposalService } from './proposal.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { 
+import {
 // MatButtonModule,
 MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatCardModule } from '@angular/material/card';
@@ -17,7 +16,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
-import { NgxMdModule } from 'ngx-md';
+import { MarkdownModule } from 'ngx-markdown';
 
 
 import { environment as env } from '../environments/environment';
@@ -40,9 +39,7 @@ import { environment as env } from '../environments/environment';
     MatDividerModule,
     MatExpansionModule,
     MatTooltipModule,
-    NgxMdModule.forRoot(),
-    HttpClientModule      //  We don't use this module bu NgxMd links to it
-
+    MarkdownModule.forRoot(),
   ],
   providers: [
     { provide: ProposalService, useValue: env.proposal }
