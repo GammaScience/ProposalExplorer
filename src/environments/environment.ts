@@ -92,7 +92,7 @@ blar blar blar blar blar blar blar blar blar blar blar blar`,
 
 export const environment = {
   production: false,
-  proposal: getProposal()
+  proposal: null//getProposal()
 };
 
 /*

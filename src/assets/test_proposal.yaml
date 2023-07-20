@@ -1,0 +1,27 @@
+---
+title: Sample Proposal
+description: This is a sample proposal description.
+
+solutions:
+  - name: Solution 1
+    summary: Summary of Solution 1
+    description: Description of Solution 1
+    blocks: []
+    requires: []
+    active: true
+
+  - name: Solution 2
+    summary: Summary of Solution 2
+    description: Description of Solution 2
+    blocks: [Solution 1]
+    requires: []
+
+painPoints:
+  - name: Pain Point 1
+    summary: Summary of Pain Point 1
+    description: Description of Pain Point 1
+    solvedBy: [Solution 1]
+  - name: Pain Point 2
+    summary: Summary of Pain Point 2
+    description: Description of Pain Point 2
+    solvedBy: [Solution 2]

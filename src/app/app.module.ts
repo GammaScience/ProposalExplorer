@@ -7,9 +7,8 @@ import { PainPointComponent } from './pain-point/pain-point.component';
 import { SolutionComponent } from './solution/solution.component';
 import { ProposalService } from './proposal.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {
-// MatButtonModule,
-MatButtonToggleModule } from '@angular/material/button-toggle';
+import {MatButtonModule} from '@angular/material/button';
+import {MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDividerModule } from '@angular/material/divider';
@@ -20,6 +19,9 @@ import { MarkdownModule } from 'ngx-markdown';
 
 
 import { environment as env } from '../environments/environment';
+import { HttpClientModule } from '@angular/common/http';
+import { ProposalLoaderService } from './services/proposal-loader.service';
+import { ProposalExportService } from './services/proposal-export.service';
 
 
 @NgModule({
@@ -32,7 +34,7 @@ import { environment as env } from '../environments/environment';
     AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
-    // MatButtonModule,
+    MatButtonModule,
     MatButtonToggleModule,
     MatCardModule,
     MatCheckboxModule,
@@ -40,9 +42,12 @@ import { environment as env } from '../environments/environment';
     MatExpansionModule,
     MatTooltipModule,
     MarkdownModule.forRoot(),
+    HttpClientModule,
   ],
   providers: [
-    { provide: ProposalService, useValue: env.proposal }
+    //{ provide: ProposalService, useValue: env.proposal },
+    ProposalLoaderService,
+    ProposalExportService,
   ],
   bootstrap: [AppComponent]
 })

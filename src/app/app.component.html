@@ -1,27 +1,47 @@
-<div class="title">
-  <h1>
-    Proposal visualization: <span class="subtitle">{{ title }}</span>
-  </h1>
-</div>
-
-<div class="panel">
-  <markdown class="description" [data]="description"></markdown>
-  <div class="card-container">
-    <mat-card>
-      <mat-card-title>Identified Problems</mat-card-title>
-      <mat-accordion multi="true" class="painpoints" >
-      <ng-template ngFor let-pp [ngForOf]="proposal.painPoints">
-        <app-pain-point [model]="pp" ></app-pain-point>
-      </ng-template>
-      </mat-accordion>
-    </mat-card>
-    <mat-card>
-      <mat-card-title>Proposed possible solutions</mat-card-title>
-      <mat-accordion  class="solutions" multi="true">
-        <ng-template ngFor let-sol [ngForOf]="proposal.solutions">
-          <app-solution [model]="sol"></app-solution>
-        </ng-template>
-      </mat-accordion>
-    </mat-card>
+<div *ngIf="!proposal else loaded">
+  <div class="title">
+    <h1>
+      Proposal visualization: <span class="subtitle">Please load your solution file below.</span>
+    </h1>
+  </div>
+  <div class="panel pad-top" style="text-align:center;">
+    <span class="button-hint">Please select your proposal file.</span>
+    <button type="button" mat-raised-button color="primary" (click)="fileInput.click()">Choose File</button>
+    <input hidden (change)="onFileSelected($event)" #fileInput type="file" id="fileInput">
   </div>
 </div>
+
+<ng-template #loaded >
+  <div class="title">
+    <h1>
+      Proposal visualization: <span class="subtitle">{{ title }}</span>
+    </h1>
+  </div>
+
+  <div class="panel">
+    <markdown class="description" [data]="description"></markdown>
+    <div class="card-container">
+      <mat-card>
+        <mat-card-title>Identified Problems</mat-card-title>
+        <mat-accordion multi="true" class="painpoints" >
+        <ng-template ngFor let-pp [ngForOf]="proposal.painPoints">
+          <app-pain-point [model]="pp" ></app-pain-point>
+        </ng-template>
+        </mat-accordion>
+      </mat-card>
+      <mat-card>
+        <mat-card-title>Proposed possible solutions</mat-card-title>
+        <mat-accordion  class="solutions" multi="true">
+          <ng-template ngFor let-sol [ngForOf]="proposal.solutions">
+            <app-solution [model]="sol"></app-solution>
+          </ng-template>
+        </mat-accordion>
+      </mat-card>
+    </div>
+    <div class="panel pad-top" style="text-align:center;">
+      <span class="button-hint">Export Choices</span>
+      <button type="button" mat-raised-button color="primary" (click)="onDownloadClick()">Save</button>
+
+    </div>
+  </div>
+</ng-template>
