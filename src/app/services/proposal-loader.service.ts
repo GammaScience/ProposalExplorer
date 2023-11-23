@@ -93,13 +93,18 @@ export class ProposalLoaderService {
             sol.requires.add(requiresSolution);
           }
         }
+        sol.updateLinks();
+
+      }
+      // check active once all links created
+      for (const solutionData of data.solutions) {
+        const sol = this.findSolutionByName(solutionData.name,solutions);
         if(solutionData.active && solutionData.active === true)
         {
           sol.setActive(true);
         }
-        sol.updateLinks();
-
       }
+
 
       pservice.solutions = solutions;
       pservice.painPoints = painpoints;

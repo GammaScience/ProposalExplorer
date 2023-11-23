@@ -18,7 +18,7 @@
         mat-raised-button color="primary"
         (click)="toggleActive($event)">
         <ng-template [ngIf]="model.active | async" [ngIfElse]="inactive">Remove</ng-template>
-        <ng-template #inactive >Add</ng-template>
+        <ng-template #inactive class="clamped-height">Add</ng-template>
       </mat-button-toggle>
     </span>
   </mat-expansion-panel-header>

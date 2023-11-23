@@ -25,7 +25,7 @@ export class ProposalExportService {
         description: item.description,
         blocks: this.toArrayOfNames(item.blocks),
         requires: this.toArrayOfNames(item.requires),
-        active: true
+        active: item.isActive
       } );
     })
     return s;

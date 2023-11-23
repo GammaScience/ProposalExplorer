@@ -14,7 +14,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatTooltipModule } from '@angular/material/tooltip';
-
+import {MatIconModule} from '@angular/material/icon';
 import { MarkdownModule } from 'ngx-markdown';
 
 
@@ -42,6 +42,7 @@ import { ProposalExportService } from './services/proposal-export.service';
     MatExpansionModule,
     MatTooltipModule,
     MarkdownModule.forRoot(),
+    MatIconModule,
     HttpClientModule,
   ],
   providers: [

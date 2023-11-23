@@ -1,14 +1,19 @@
 
 @available: white;
-@notavailable: gray;
-@active: paleturquoise;
+@notavailable: #95a5a6;
+@active: #f1c40f;
 
 @changeInTime: 1s;
 
 /deep/.mat-content {
     align-items: center;
 }
-
+/deep/ .mat-button-toggle{
+  border-radius: 30px !important;
+}
+/deep/ .mat-button-toggle-label-content {
+  line-height: 30px !important;
+}
 .mat-expansion-panel:not([aria-disabled=true]){
     mat-panel-title{
         flex: 2;
@@ -22,19 +27,28 @@
 
     // :not(.mat-expanded)
     &.available .mat-expansion-panel-header{
+
         background-color: @available;
+        .mat-expansion-panel-header-title{
+          color : rgb(20, 20, 20);
+        }
         &:hover{
             background-color: lighten(@available, 10%);
         }
     }
     &.notavailable .mat-expansion-panel-header{
         background-color: @notavailable;
+        opacity: .6;
         &:hover{
             background-color: lighten(@notavailable, 10%);
         }
     }
     &.active .mat-expansion-panel-header{
         background-color: @active;
+        color: white;
+        .mat-expansion-panel-header-title {
+            color: white;
+          }
         &:hover{
             background-color: lighten(@active, 10%);
         }
@@ -66,7 +80,7 @@
     .mat-expanded {
         border-bottom: 1px solid rgba(0,0,0,.2);
         border-bottom-right-radius: 0px;
-        border-bottom-left-radius: 0px;  
+        border-bottom-left-radius: 0px;
     }
 
     mat-divider{
@@ -82,10 +96,18 @@
     .note-item{
         &.active {
             color: #36821d;
+            &:hover {
+                font-weight: 500;
+                cursor: pointer;
+              }
         }
         &.blocked {
             //text-decoration: line-through;
             color: #c77e7e;
+            &:hover {
+                font-weight: 500;
+                cursor: pointer;
+              }
         }
         &:not(.first)::before{
             content: ',';

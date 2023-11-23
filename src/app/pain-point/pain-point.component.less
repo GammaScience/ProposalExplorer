@@ -1,30 +1,88 @@
 
-@solved: #b0fdb0;
-@unsolved: #f3c8c8;
+@solved: #2ecc71;
+@unsolved: #e74c3c;
+@font-face {
+  font-family: 'Material Symbols Outlined';
+  font-style: normal;
+  font-weight: 100 700;
+  src: url(https://fonts.gstatic.com/s/materialsymbolsoutlined/v124/kJEhBvYX7BgnkSrUwT8OhrdQw4oELdPIeeII9v6oFsI.woff2) format('woff2');
+}
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  align-self: center;
+  padding:10px;
+
+  -moz-font-feature-settings: 'liga';
+  -moz-osx-font-smoothing: grayscale;
+}
+app-pain-point{
+  margin-bottom: 0px;
+}
+.warn-icon {
+  .material-symbols-outlined;
+  position: absolute;
+  top: calc(50% - 25px);
+  content: "\e82a";
+  color: rgba(0, 0, 0, .5);
+}
+
+.good-icon {
+  .material-symbols-outlined;
+  position: absolute;
+  top: calc(50% - 25px);
+  content: "\e86c";
+  color: rgba(0, 0, 0, .5);
+}
 
 .mat-expansion-panel:not([aria-disabled=true]){
     // :not(.mat-expanded)
-
     mat-panel-title{
         flex: 1;
         overflow: hidden;
         white-space: nowrap;
+        margin-left:20px;
     }
     mat-panel-description{
         flex: 2;
     }
+
     &.solved .mat-expansion-panel-header{
         background-color: @solved;
+        color: white;
+        .mat-expansion-panel-header-title {
+            color: rgb(255, 255, 255);
+          }
         &:hover{
             background-color: lighten(@solved, 5%);
+        }
+        &::before{
+          .good-icon;
         }
     }
     &.notsolved .mat-expansion-panel-header{
         background-color: @unsolved;
+        color: white;
+        .mat-expansion-panel-header-title {
+            color: rgb(255, 255, 255);
+          }
         &:hover{
             background-color: lighten(@unsolved, 5%);
         }
+        &::before{
+          .warn-icon;
+        }
     }
+
     mat-panel-title{
         font-weight: bolder;
     }
@@ -41,10 +99,18 @@
     .note-item{
         &.active{
             color: #36821d;
+            &:hover{
+              font-weight: 500;
+              cursor: pointer;
+            }
         }
         &.blocked{
             // text-decoration: line-through;
             color: #c77e7e;
+            &:hover {
+                font-weight: 500;
+                cursor: pointer;
+              }
         }
         &:not(.last)::after{
             content: ',';
@@ -52,4 +118,9 @@
         }
     }
 
+}
+.mat-expanded {
+  border-bottom: 1px solid rgba(0, 0, 0, .2);
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
 }

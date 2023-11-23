@@ -1,27 +1,80 @@
 ---
 title: Sample Proposal
-description: This is a sample proposal description.
+description: "# This is a title for the introductory text
+
+  This is an overview of what is wrong with the current system
+  Lorem ipsum dolor sit amet id qui nominati repudiare, suavitate dissentiet est cu,
+  liber luptatum eu eam. Eum an deleniti oporteat tincidunt. At vis veri ferri
+  consequuntur, ne eum soluta sapientem vulputate. Graecis convenire maiestatis ne
+  qui, his ea reque tamquam.
+
+  ## Sub heading
+
+  Eam aliquam dissentiet in, qui cu feugait indoctum. Id vidit scripta omnesque
+  pro. Ut quo tale singulis, ne mei civibus hendrerit, qui ei elitr eleifend. Mel
+  epicurei reformidans ea, id possit doctus nostrum cum, duo cibo perfecto convenire
+  an. In consequat suscipiantur nam, eum mucius dolorem efficiendi ut. In odio nihil
+  utroque mea, has dico facilisis mnesarchum eu, movet timeam efficiantur ut sed.
+
+  ### Small heading
+
+  - Review Painpoints
+
+  - Add Solutions
+
+  - Export Choices
+  "
 
 solutions:
   - name: Solution 1
     summary: Summary of Solution 1
-    description: Description of Solution 1
+    description: '### I am solution 1.
+
+    I do not require or block any other solutions. Eam aliquam dissentiet in, qui cu feugait indoctum.
+
+    - Blocks none
+
+    - Requires none
+    '
     blocks: []
     requires: []
-    active: true
+    active: false
 
   - name: Solution 2
     summary: Summary of Solution 2
-    description: Description of Solution 2
+    description: I block solution 1. Eam aliquam dissentiet in, qui cu feugait indoctum.
     blocks: [Solution 1]
     requires: []
+
+  - name: Solution 3
+    summary: Summary of Solution 3
+    description: I require solution 1. Eam aliquam dissentiet in, qui cu feugait indoctum.
+    blocks: []
+    requires: [Solution 1]
+
+  - name: Solution 4
+    summary: Summary of Solution 3
+    description: I require solution 1 but I block solution 3. Eam aliquam dissentiet in, qui cu feugait indoctum.
+    blocks: [Solution 3]
+    requires: [Solution 1]
 
 painPoints:
   - name: Pain Point 1
     summary: Summary of Pain Point 1
-    description: Description of Pain Point 1
-    solvedBy: [Solution 1]
+    description: Description of Pain Point 1. Eam aliquam dissentiet in, qui cu feugait indoctum.
+    solvedBy: [Solution 1, Solution 2]
+
   - name: Pain Point 2
     summary: Summary of Pain Point 2
-    description: Description of Pain Point 2
+    description: Description of Pain Point 2. Eam aliquam dissentiet in, qui cu feugait indoctum.
     solvedBy: [Solution 2]
+
+  - name: Pain Point 3
+    summary: Summary of Pain Point 3
+    description: Description of Pain Point 2. Eam aliquam dissentiet in, qui cu feugait indoctum.
+    solvedBy: [Solution 3]
+
+  - name: Pain Point 4
+    summary: Summary of Pain Point 3
+    description: Description of Pain Point 2. Eam aliquam dissentiet in, qui cu feugait indoctum.
+    solvedBy: [Solution 4]
