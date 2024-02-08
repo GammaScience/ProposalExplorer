@@ -13,18 +13,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
+    - name: checkout
+      uses: actions/checkout@v2
     - name: Use Node.js 20
       uses: actions/setup-node@v4.0.2
       with:
         # Version Spec of the version to use. Examples: 12.x, 10.15.1, >=10.15.0.
         node-version: 20.11.0
-
     - name: Install dependencies
-      run: npm install
+      run: yarn install
   # The linter got lost in the upgrade to ng14.
   #  hoepfully we can find it againg
   #  - name: Lint
   #    run: npm run lint
     - name: Test
-      run: npm test -- --configuration=ci
+      run: yarn test -- --configuration=ci
