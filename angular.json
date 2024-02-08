@@ -73,18 +73,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "proposal-explorer:build"
+            "buildTarget": "proposal-explorer:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "proposal-explorer:build:production"
+              "buildTarget": "proposal-explorer:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "proposal-explorer:build"
+            "buildTarget": "proposal-explorer:build"
           }
         },
         "test": {
