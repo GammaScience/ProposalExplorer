@@ -32,10 +32,11 @@ export class AppComponent {
     if(file){
       const reader = new FileReader();
 
-      reader.onload = (e: any) => {
+      reader.onload= (e: any) => {
         const yamlData = e.target.result;
           try {
-            this.proposal= this.proposal_loader.buildProposalDataFromYAMLFile(yamlData);
+            console.log("loaded proposal")
+            this.proposal = this.proposal_loader.buildProposalDataFromYAMLFile(yamlData);
           } catch (error) {
             console.error('Error parsing YAML:', error);
           }

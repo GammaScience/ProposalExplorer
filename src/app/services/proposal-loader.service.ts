@@ -30,7 +30,7 @@ export class ProposalLoaderService {
   // Method to load YAML data from a string and return a ProposalService
   buildProposalDataFromYAMLFile(yamlData: string): ProposalService {
       const data = yaml.load(yamlData);
-      console.log(data);
+
       return this.buildProposalServiceFromData(data);
   }
 
@@ -67,9 +67,9 @@ export class ProposalLoaderService {
         // Add solutions to the pain point if they exist in the solutions array
         if (painPointData.solvedBy && painPointData.solvedBy.length > 0) {
             for(const sol of painPointData.solvedBy){
-              console.log(sol);
+
               let pp_sol = this.findSolutionByName(sol,solutions);
-              console.log(pp_sol);
+
               if(pp_sol !== null)
                 painpoint.solvedBy.add(pp_sol);
             }

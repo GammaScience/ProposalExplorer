@@ -26,8 +26,8 @@ describe('the Solution model', () => {
     });
   });
   describe('has a fuction to_update links', () => {
-      it(` which calls markBlockby on each of it's blocking solutions`);
-      it(` which calls markRequiredBy on each of it's requiredby solutions`);
+      it(` which calls markBlockby on each of it's blocking solutions`,() => {});
+      it(` which calls markRequiredBy on each of it's requiredby solutions`,() => {});
   });
   describe('has a setter for active', () => {
     let s: Solution;

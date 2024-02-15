@@ -33,7 +33,7 @@ describe('SolutionComponent', () => {
         MatCheckboxModule,
         MatDividerModule,
         MatExpansionModule,
-        MarkdownModule,
+        MarkdownModule.forRoot(),
         HttpClientModule
       ],
       declarations: [ SolutionComponent ]
