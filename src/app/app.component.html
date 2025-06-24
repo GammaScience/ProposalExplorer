@@ -11,6 +11,12 @@
     <button type="button" mat-raised-button color="primary" (click)="fileInput.click()">Choose File</button>
     <input hidden (change)="onFileSelected($event)" #fileInput type="file" id="fileInput">
   </div>
+  <div class="panel pad-top" style="text-align:center;">
+  <span class="button-hint">Or download a sample solution file.</span>
+  <a href="/assets/test_proposal.yaml" download style="margin-left: 10px;">
+    <button type="button" mat-raised-button color="primary" >Download Sample File</button>
+  </a>
+</div>
 </div>
 
 <ng-template #loaded >
@@ -54,6 +60,7 @@
     <mat-card>
 
       <button type="button" mat-raised-button color="primary" (click)="onDownloadClick()">Export choices to file</button>
+
 
     </mat-card>
   </div>
