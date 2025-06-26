@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ProposalService } from './proposal.service';
 import { ProposalExportService } from './services/proposal-export.service';
 import { ProposalLoaderService } from './services/proposal-loader.service';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +12,7 @@ import { ProposalLoaderService } from './services/proposal-loader.service';
 export class AppComponent {
 
   public proposal : ProposalService;
+  public env = environment;
    get title() {
      return this.proposal.title;
    }

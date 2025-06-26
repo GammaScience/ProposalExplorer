@@ -1,7 +1,7 @@
 import { ProposalService } from '../app/proposal.service';
 import { PainPoint } from '../app/painpoint.model';
 import { Solution } from 'src/app/solution.model';
-
+import pkg from '../../package.json';
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
@@ -92,7 +92,8 @@ blar blar blar blar blar blar blar blar blar blar blar blar`,
 
 export const environment = {
   production: false,
-  proposal: null//getProposal()
+  proposal: null,//getProposal()
+  version :pkg.version,
 };
 
 /*
