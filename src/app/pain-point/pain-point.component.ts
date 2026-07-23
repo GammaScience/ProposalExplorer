@@ -3,9 +3,10 @@ import { PainPoint } from '../painpoint.model';
 import { Solution } from '../solution.model';
 
 @Component({
-  selector: 'app-pain-point',
-  templateUrl: './pain-point.component.html',
-  styleUrls: ['./pain-point.component.less']
+    selector: 'app-pain-point',
+    templateUrl: './pain-point.component.html',
+    styleUrls: ['./pain-point.component.less'],
+    standalone: false
 })
 export class PainPointComponent implements OnInit {
 

@@ -6,9 +6,10 @@ import { tap, switchMap, filter } from 'rxjs/operators';
 const timerdelay = 1000;
 
 @Component({
-  selector: 'app-solution',
-  templateUrl: './solution.component.html',
-  styleUrls: ['./solution.component.less']
+    selector: 'app-solution',
+    templateUrl: './solution.component.html',
+    styleUrls: ['./solution.component.less'],
+    standalone: false
 })
 export class SolutionComponent implements OnInit {
 

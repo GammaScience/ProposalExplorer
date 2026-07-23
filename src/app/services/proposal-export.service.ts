@@ -17,7 +17,7 @@ export class ProposalExportService {
   }
 
   extractSolutions(solutions:Set<Solution>) : any[]{
-    let s = [];
+    const s = [];
     solutions.forEach(item => {
       s.push({
         name: item.name,
@@ -32,7 +32,7 @@ export class ProposalExportService {
   }
 
   extractPainpoints(points:Set<PainPoint>) : any[]{
-    let s = [];
+    const s = [];
     points.forEach(item => {
       s.push({
         name: item.name,
@@ -44,8 +44,8 @@ export class ProposalExportService {
     return s;
   }
 
-  toArrayOfNames(items:Set<Solution | PainPoint>) : Array<string>{
-    let s = new Array();
+  toArrayOfNames(items:Set<Solution | PainPoint>) : string[]{
+    const s = [];
     items.forEach(item => {
       s.push(item.name);
     });

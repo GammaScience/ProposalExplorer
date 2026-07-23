@@ -7,7 +7,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import {  NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MarkdownModule } from 'ngx-markdown';
 
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 import { SolutionComponent } from './solution.component';
 import { Solution } from '../solution.model';
@@ -26,18 +26,16 @@ describe('SolutionComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [
-        NoopAnimationsModule,
+    declarations: [SolutionComponent],
+    imports: [NoopAnimationsModule,
         MatButtonToggleModule,
         MatCardModule,
         MatCheckboxModule,
         MatDividerModule,
         MatExpansionModule,
-        MarkdownModule.forRoot(),
-        HttpClientModule
-      ],
-      declarations: [ SolutionComponent ]
-    })
+        MarkdownModule.forRoot()],
+    providers: [provideHttpClient(withInterceptorsFromDi())]
+})
     .compileComponents();
   }));
 

@@ -1,67 +1,62 @@
 <img class="logo" src="/assets/logo.svg" height="50px" alt="image">
-<div *ngIf="!proposal else loaded">
-  <div class="title">
-    <h1>
-      Proposal visualization: <span class="subtitle">Please load your solution file below.</span>
-    </h1>
-    <div class="version-text">version : {{env.version}}</div>
+@if (!proposal) {
+  <div>
+    <div class="title">
+      <h1>
+        Proposal visualization: <span class="subtitle">Please load your solution file below.</span>
+      </h1>
+      <div class="version-text">version : {{env.version}}</div>
+    </div>
+    <div class="panel pad-top" style="text-align:center;">
+      <span class="button-hint">Please select your proposal file.</span>
+      <button type="button" mat-raised-button color="primary" (click)="fileInput.click()">Choose File</button>
+      <input hidden (change)="onFileSelected($event)" #fileInput type="file" id="fileInput">
+    </div>
+    <div class="panel pad-top" style="text-align:center;">
+      <span class="button-hint">Or download a sample solution file.</span>
+      <a href="/assets/test_proposal.yaml" download style="margin-left: 10px;">
+        <button type="button" mat-raised-button color="primary" >Download Sample File</button>
+      </a>
+    </div>
   </div>
-  <div class="panel pad-top" style="text-align:center;">
-    <span class="button-hint">Please select your proposal file.</span>
-    <button type="button" mat-raised-button color="primary" (click)="fileInput.click()">Choose File</button>
-    <input hidden (change)="onFileSelected($event)" #fileInput type="file" id="fileInput">
-  </div>
-  <div class="panel pad-top" style="text-align:center;">
-  <span class="button-hint">Or download a sample solution file.</span>
-  <a href="/assets/test_proposal.yaml" download style="margin-left: 10px;">
-    <button type="button" mat-raised-button color="primary" >Download Sample File</button>
-  </a>
-</div>
-</div>
-
-<ng-template #loaded >
+} @else {
   <div class="title">
     <h1>
       Proposal visualization: <span class="subtitle">{{ title }}</span>
     </h1>
   </div>
-
   <div class="panel">
-      <mat-accordion>
-        <mat-expansion-panel active>
-          <mat-expansion-panel-header style="padding:5px 20px 5px 10px;">
-            <mat-panel-title class="block-title" style="padding:0px; font-size:large;">
-             Details
-            </mat-panel-title>
-
-          </mat-expansion-panel-header>
-          <markdown class="description"  [data]="description"></markdown>
-        </mat-expansion-panel>
+    <mat-accordion>
+      <mat-expansion-panel active>
+        <mat-expansion-panel-header style="padding:5px 20px 5px 10px;">
+          <mat-panel-title class="block-title" style="padding:0px; font-size:large;">
+            Details
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <markdown class="description"  [data]="description"></markdown>
+      </mat-expansion-panel>
     </mat-accordion>
-
     <div class="card-container" style="margin-top:10px;">
       <mat-card >
         <mat-card-title class="block-title">Identified Problems</mat-card-title>
         <mat-accordion multi="true" class="painpoints" >
-        <ng-template ngFor let-pp [ngForOf]="proposal.painPoints">
-          <app-pain-point [model]="pp" ></app-pain-point>
-        </ng-template>
+          @for (pp of proposal.painPoints; track pp) {
+            <app-pain-point [model]="pp" ></app-pain-point>
+          }
         </mat-accordion>
       </mat-card>
       <mat-card>
         <mat-card-title class="block-title">Proposed possible solutions</mat-card-title>
         <mat-accordion  class="solutions" multi="true">
-          <ng-template ngFor let-sol [ngForOf]="proposal.solutions">
+          @for (sol of proposal.solutions; track sol) {
             <app-solution [model]="sol"></app-solution>
-          </ng-template>
+          }
         </mat-accordion>
       </mat-card>
     </div>
     <mat-card>
-
       <button type="button" mat-raised-button color="primary" (click)="onDownloadClick()">Export choices to file</button>
-
-
     </mat-card>
   </div>
-</ng-template>
+}
+

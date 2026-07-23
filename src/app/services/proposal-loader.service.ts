@@ -41,8 +41,8 @@ export class ProposalLoaderService {
       pservice.title = data.title;
       pservice.description = data.description;
 
-      let painpoints : Set<PainPoint> = new Set();
-      let solutions : Set<Solution> = new Set();
+      const painpoints  = new Set<PainPoint>();
+      const solutions  = new Set<Solution>();
 
       // Loop through the solutions array in the data and add them to the set
       for (const solutionData of data.solutions) {
@@ -68,7 +68,7 @@ export class ProposalLoaderService {
         if (painPointData.solvedBy && painPointData.solvedBy.length > 0) {
             for(const sol of painPointData.solvedBy){
 
-              let pp_sol = this.findSolutionByName(sol,solutions);
+              const pp_sol = this.findSolutionByName(sol,solutions);
 
               if(pp_sol !== null)
                 painpoint.solvedBy.add(pp_sol);

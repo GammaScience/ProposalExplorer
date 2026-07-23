@@ -6,19 +6,22 @@
   >
   <mat-expansion-panel-header>
     <mat-panel-title>
-      {{ model.name }} <ng-template [ngIf]="model.summary != ''"> : </ng-template>
-    </mat-panel-title>
-    <mat-panel-description>
-      {{ model.summary }}
-    </mat-panel-description>
-  </mat-expansion-panel-header>
-  <markdown [data]="model.description"></markdown>
-  <div class="notes" *ngIf="model.solvedBy.size  > 0">
+      {{ model.name }} @if (model.summary !== '') {
+      :
+    }
+  </mat-panel-title>
+  <mat-panel-description>
+    {{ model.summary }}
+  </mat-panel-description>
+</mat-expansion-panel-header>
+<markdown [data]="model.description"></markdown>
+@if (model.solvedBy.size  > 0) {
+  <div class="notes">
     <mat-divider></mat-divider>
     <div class="note">
       <span class="note-header">Possible solutions include:</span>
-      <span
-        *ngFor="let preprq of model.solvedBy; let first = first; let last = last"
+      @for (preprq of model.solvedBy; track preprq; let first = $first; let last = $last) {
+        <span
         [ngClass]="{
           'note-item': true,
           'active': preprq.active|async,
@@ -26,9 +29,11 @@
           first: first,
           last: last
         }"
-        [matTooltip]="blockedByInfo(preprq)"
-        (click)="preprq.identify_control()"
-      > {{preprq.name}}</span>
+          [matTooltip]="blockedByInfo(preprq)"
+          (click)="preprq.identify_control()"
+        > {{preprq.name}}</span>
+      }
     </div>
   </div>
+}
 </mat-expansion-panel>

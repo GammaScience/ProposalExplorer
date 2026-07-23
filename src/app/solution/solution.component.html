@@ -8,27 +8,36 @@
   >
   <mat-expansion-panel-header>
     <mat-panel-title>
-      {{ model.name }} <ng-template [ngIf]="model.summary != ''"> : </ng-template>
-    </mat-panel-title>
-    <mat-panel-description>
+      {{ model.name }} @if (model.summary !== '') {
+      :
+    }
+  </mat-panel-title>
+  <mat-panel-description>
     <span>{{ model.summary }}</span>
-    </mat-panel-description>
-     <span class="actions">
-      <mat-button-toggle *ngIf="model.available|async"
+  </mat-panel-description>
+  <span class="actions">
+    @if (model.available|async) {
+      <mat-button-toggle
         mat-raised-button color="primary"
         (click)="toggleActive($event)">
-        <ng-template [ngIf]="model.active | async" [ngIfElse]="inactive">Remove</ng-template>
-        <ng-template #inactive class="clamped-height">Add</ng-template>
+        @if (model.active | async) {
+          Remove
+        } @else {
+          Add
+        }
       </mat-button-toggle>
-    </span>
-  </mat-expansion-panel-header>
-  <markdown [data]="model.description"></markdown>
-  <div class="notes" *ngIf="model.requires.size + model.requiredBy.size + model.blocks.size > 0">
+    }
+  </span>
+</mat-expansion-panel-header>
+<markdown [data]="model.description"></markdown>
+@if (model.requires.size + model.requiredBy.size + model.blocks.size > 0) {
+  <div class="notes">
     <mat-divider></mat-divider>
-    <div *ngIf="model.requires.size > 0" class="note">
-      <span class="note-header">Requires:</span>
-      <span
-        *ngFor="let preprq of model.requires; let first = first; let last = last"
+    @if (model.requires.size > 0) {
+      <div class="note">
+        <span class="note-header">Requires:</span>
+        @for (preprq of model.requires; track preprq; let first = $first; let last = $last) {
+          <span
         [ngClass]="{
           'note-item': true,
           'active': preprq.active|async,
@@ -36,13 +45,16 @@
           first: first,
           last: last
         }"
-        (click)="preprq.identify_control()"
-      > {{preprq.name}}</span>
-    </div>
-    <div *ngIf="model.requiredBy.size > 0" class="note">
-      <span class="note-header">Requires by:</span>
-      <span
-        *ngFor="let preprq of model.requiredBy; let first = first; let last = last"
+            (click)="preprq.identify_control()"
+          > {{preprq.name}}</span>
+        }
+      </div>
+    }
+    @if (model.requiredBy.size > 0) {
+      <div class="note">
+        <span class="note-header">Requires by:</span>
+        @for (preprq of model.requiredBy; track preprq; let first = $first; let last = $last) {
+          <span
         [ngClass]="{
           'note-item': true,
           'active': preprq.active|async,
@@ -50,13 +62,16 @@
           first: first,
           last: last
         }"
-        (click)="preprq.identify_control()"
-      > {{preprq.name}}</span>
-    </div>
-    <div *ngIf="model.blocks.size > 0" class="note">
-      <span class="note-header">Blocked by:</span>
-      <span
-        *ngFor="let preprq of model.blocks; let first = first; let last = last"
+            (click)="preprq.identify_control()"
+          > {{preprq.name}}</span>
+        }
+      </div>
+    }
+    @if (model.blocks.size > 0) {
+      <div class="note">
+        <span class="note-header">Blocked by:</span>
+        @for (preprq of model.blocks; track preprq; let first = $first; let last = $last) {
+          <span
         [ngClass]="{
           'note-item': true,
           'active': preprq.active|async,
@@ -64,9 +79,12 @@
           first: first,
           last: last
         }"
-        (click)="preprq.identify_control()"
-      > {{preprq.name}}</span>
-    </div>
+            (click)="preprq.identify_control()"
+          > {{preprq.name}}</span>
+        }
+      </div>
+    }
   </div>
+}
 
 </mat-expansion-panel>

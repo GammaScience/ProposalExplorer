@@ -2,20 +2,18 @@ import { BehaviorSubject, Observable, Subject } from 'rxjs';
 
 export class Solution {
 
-// tslint:disable: variable-name
     private _active = false;
     private _activeSubject: BehaviorSubject<boolean>;
 
     private _available = true;
     private _availableSubject: BehaviorSubject<boolean>;
-    public requiredBy: Set<Solution> = new Set();
-    public blockedBy: Set<Solution> = new Set();
+    public requiredBy = new Set<Solution>();
+    public blockedBy = new Set<Solution>();
 
     /**
      * Subject to watch / triger when the soloutiion in to be identified
      */
     private _revealSubject = new Subject<Solution>();
-// tslint:enable: variable-name
 
     /** Gets an observable of the active state of this slution */
     public get active() {

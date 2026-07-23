@@ -14,7 +14,7 @@ describe('the Solution model', () => {
       s.setActive(true);
       expect(() => {
         s.setAvailable(false);
-      }).toThrowError();
+      }).toThrow();
     });
     it(' should raise an error if any blockers are active when set to available', () => {
        const s2 = new Solution('', '', '', new Set(), new Set() );
@@ -22,7 +22,7 @@ describe('the Solution model', () => {
        s.setActive(true);
        expect( ()  => {
          s2.setAvailable(true);
-       }).toThrowError();
+       }).toThrow();
     });
   });
   describe('has a fuction to_update links', () => {
@@ -66,7 +66,7 @@ describe('the Solution model', () => {
        s.requires.add(s2);
        expect( () => {
          s.setActive(true);
-       }).toThrowError();
+       }).toThrow();
     });
 
     it(' that should not set requirements as true when going inactive', () => {
@@ -104,7 +104,7 @@ describe('the Solution model', () => {
        s2.setActive(true);
        expect( () => {
          s.setActive(false);
-       }).toThrowError();
+       }).toThrow();
     });
 
     it(' that should mark a solution we block as unavailable if we become active', () => {
@@ -158,7 +158,7 @@ describe('the Solution model', () => {
 
       expect( () =>  {
         s.setActive(true);
-      }).toThrowError();
+      }).toThrow();
       expect(s.isActive).toBeFalsy();
     });
   });

@@ -19,38 +19,32 @@ import { MarkdownModule } from 'ngx-markdown';
 
 
 import { environment as env } from '../environments/environment';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { ProposalLoaderService } from './services/proposal-loader.service';
 import { ProposalExportService } from './services/proposal-export.service';
 
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    PainPointComponent,
-    SolutionComponent
-  ],
-  imports: [
-    AppRoutingModule,
-    BrowserModule,
-    BrowserAnimationsModule,
-    MatButtonModule,
-    MatButtonToggleModule,
-    MatCardModule,
-    MatCheckboxModule,
-    MatDividerModule,
-    MatExpansionModule,
-    MatTooltipModule,
-    MarkdownModule.forRoot(),
-    MatIconModule,
-    HttpClientModule,
-  ],
-  providers: [
-    //{ provide: ProposalService, useValue: env.proposal },
-    ProposalLoaderService,
-    ProposalExportService,
-  ],
-  bootstrap: [AppComponent]
-})
+@NgModule({ declarations: [
+        AppComponent,
+        PainPointComponent,
+        SolutionComponent
+    ],
+    bootstrap: [AppComponent], imports: [AppRoutingModule,
+        BrowserModule,
+        BrowserAnimationsModule,
+        MatButtonModule,
+        MatButtonToggleModule,
+        MatCardModule,
+        MatCheckboxModule,
+        MatDividerModule,
+        MatExpansionModule,
+        MatTooltipModule,
+        MarkdownModule.forRoot(),
+        MatIconModule], providers: [
+        //{ provide: ProposalService, useValue: env.proposal },
+        ProposalLoaderService,
+        ProposalExportService,
+        provideHttpClient(withInterceptorsFromDi()),
+    ] })
 
 export class AppModule { }

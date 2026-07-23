@@ -8,7 +8,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import {  NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MarkdownModule } from 'ngx-markdown';
 
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { PainPointComponent } from './pain-point.component';
 import { PainPoint } from '../painpoint.model';
 
@@ -18,19 +18,17 @@ describe('PainPointComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [
-        NoopAnimationsModule,
+    declarations: [PainPointComponent],
+    imports: [NoopAnimationsModule,
         MatButtonToggleModule,
         MatCardModule,
         MatCheckboxModule,
         MatDividerModule,
         MatExpansionModule,
         MatTooltipModule,
-        MarkdownModule.forRoot(),
-        HttpClientModule
-      ],
-      declarations: [ PainPointComponent ]
-    })
+        MarkdownModule.forRoot()],
+    providers: [provideHttpClient(withInterceptorsFromDi())]
+})
     .compileComponents();
   }));
 

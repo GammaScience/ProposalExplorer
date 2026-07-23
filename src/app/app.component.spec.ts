@@ -5,7 +5,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { ProposalService } from './proposal.service';
 import { PainPoint } from './painpoint.model';
@@ -100,15 +100,17 @@ painPoints:
     solvedBy: [Solution 4]
 `;
 @Component({
-  selector: 'app-pain-point',
-  template: templateHtml,
-  styles: []
+    selector: 'app-pain-point',
+    template: templateHtml,
+    styles: [],
+    standalone: false
 })
 export class MockPainPointComponent extends MockComponentDirective<PainPoint> { }
 @Component({
-  selector: 'app-solution',
-  template: templateHtml,
-  styles: []
+    selector: 'app-solution',
+    template: templateHtml,
+    styles: [],
+    standalone: false
 })
 export class MockSolutionComponent extends MockComponentDirective<Solution> { }
 
@@ -116,8 +118,8 @@ export class MockSolutionComponent extends MockComponentDirective<Solution> { }
 
 describe('AppComponent', () => {
   const title = 'test proposal';
-  const pps: Set<PainPoint> = new Set();
-  const solutions: Set<Solution> = new Set();
+  const pps = new Set<PainPoint>();
+  const solutions = new Set<Solution>();
   let component: AppComponent;
   let fixture: ComponentFixture<AppComponent>;
   let proposalLoader: ProposalService;
@@ -128,26 +130,24 @@ describe('AppComponent', () => {
     p.painPoints = pps;
     p.solutions = solutions;
     TestBed.configureTestingModule({
-      imports: [
-        NoopAnimationsModule,
+    declarations: [
+        MockPainPointComponent,
+        MockSolutionComponent,
+        AppComponent
+    ],
+    imports: [NoopAnimationsModule,
         RouterTestingModule,
         MatButtonToggleModule,
         MatCardModule,
         MatCheckboxModule,
         MatExpansionModule,
-        MarkdownModule,
-        HttpClientModule,
-      ],
-      declarations: [
-        MockPainPointComponent,
-        MockSolutionComponent,
-        AppComponent
-      ],
-      providers: [
-        { provide: ProposalService,  useValue: p },
-        { provide: ProposalExportService,  useValue: ex }
-      ]
-    }).compileComponents();
+        MarkdownModule],
+    providers: [
+        { provide: ProposalService, useValue: p },
+        { provide: ProposalExportService, useValue: ex },
+        provideHttpClient(withInterceptorsFromDi())
+    ]
+}).compileComponents();
   }));
 
   beforeEach(() => {

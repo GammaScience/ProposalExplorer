@@ -5,9 +5,10 @@ import { ProposalLoaderService } from './services/proposal-loader.service';
 import { environment } from '../environments/environment';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.less']
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.less'],
+    standalone: false
 })
 export class AppComponent {
 
@@ -30,7 +31,7 @@ export class AppComponent {
 
    // load local yaml file.
    onFileSelected(e:any) {
-    let file = e.target.files[0];
+    const file = e.target.files[0];
     if(file){
       const reader = new FileReader();
 
