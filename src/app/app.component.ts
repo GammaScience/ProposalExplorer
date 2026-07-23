@@ -48,7 +48,7 @@ export class AppComponent {
     }
   }
   // export updated proposal to yaml.
-  onDownloadClick(e){
+  onDownloadClick(_e: Event){
     const yamlData = this.proposal_export.toYAML(this.proposal);
     this.downloadYAMLFile(yamlData);
   }

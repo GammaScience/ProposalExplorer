@@ -3,7 +3,7 @@
   "compilerOptions": {
     "outDir": "../out-tsc/spec",
     "types": [
-      "jasmine",
+      "jest",
       "node"
     ]
   },
@@ -14,5 +14,9 @@
   "include": [
     "**/*.spec.ts",
     "**/*.d.ts"
+  ],
+  "exclude": [
+    "../e2e/**/*",
+    "../node_modules/@playwright/**/*"
   ]
 }

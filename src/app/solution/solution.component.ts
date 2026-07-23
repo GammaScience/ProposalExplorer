@@ -20,7 +20,7 @@ export class SolutionComponent implements OnInit {
 
   ngOnInit() {
     this.model.identify_watcher().pipe(
-      tap( sol => {
+      tap( _sol => {
         this.reveal = true;
         if ( this.elementRef.nativeElement.scrollIntoViewIfNeeded !== undefined) {
           this.elementRef.nativeElement.scrollIntoViewIfNeeded(false);
@@ -31,9 +31,9 @@ export class SolutionComponent implements OnInit {
           });
         }
       }),
-      switchMap( (sol) => timer(timerdelay) ),
+      switchMap( (_sol) => timer(timerdelay) ),
       filter( v => v === 0 ),
-    ).subscribe( sol => {
+    ).subscribe( _sol => {
       this.reveal = false;
     });
   }
@@ -43,7 +43,7 @@ export class SolutionComponent implements OnInit {
       }
       try {
         this.model.setActive(!this.model.isActive );
-      } catch (err) {
+      } catch (_err) {
         event.preventDefault();
       }
   }

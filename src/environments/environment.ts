@@ -7,7 +7,7 @@ import pkg from '../../package.json';
 // The list of file replacements can be found in `angular.json`.
 
 
-function getProposal() {
+function _getProposal() {
   const p = new ProposalService();
   const sol1 = new Solution(
     'Solution 1',
@@ -92,7 +92,7 @@ blar blar blar blar blar blar blar blar blar blar blar blar`,
 
 export const environment = {
   production: false,
-  proposal: null,//getProposal()
+  proposal: null, // _getProposal()
   version :pkg.version,
 };
 
