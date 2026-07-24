@@ -36,8 +36,8 @@ jobs:
         uses: docker/login-action@v3
         with:
           registry: ${{ env.REGISTRY }}
-          username: ${{ secrets.HARBOR_ROGER_MISC_USER }}
-          password: ${{ secrets.HARBOR_ROGER_MISC_PASSWD }}
+          username: ${{ secrets.HARBOR_ROBOT_WEB_USER }}
+          password: ${{ secrets.HARBOR_ROBOT_WEB_PASSWD }}
 
       - name: Extract metadata for Docker
         id: meta
